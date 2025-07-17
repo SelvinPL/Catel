@@ -146,7 +146,7 @@
         /// <returns><c>true</c> if the dialog result can be set; otherwise, <c>false</c>.</returns>
         public static bool CanSetDialogResult(this SystemWindow window)
         {
-            ArgumentNullException.ThrowIfNull(window);
+            ArgumentNullExceptionCheck.ThrowIfNull(window);
 
             if (!IsShowingAsDialog(window))
             {
@@ -209,7 +209,7 @@
         /// <returns>IntPtr.</returns>
         public static IntPtr GetWindowHandle(this SystemWindow window)
         {
-            ArgumentNullException.ThrowIfNull(window);
+            ArgumentNullExceptionCheck.ThrowIfNull(window);
 
             var interopHelper = new WindowInteropHelper(window);
             return interopHelper.Handle;
@@ -222,7 +222,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="window"/> is <c>null</c>.</exception>
         public static void BringWindowToTop(this SystemWindow window)
         {
-            ArgumentNullException.ThrowIfNull(window);
+            ArgumentNullExceptionCheck.ThrowIfNull(window);
 
             var windowHandle = window.GetWindowHandle();
 
@@ -242,7 +242,7 @@
         /// <param name="focusFirstControl">If true, the first control will automatically be focused.</param>
         private static void SetOwnerWindow(SystemWindow window, SystemWindow? ownerWindow, IntPtr ownerHandle, bool forceNewOwner, bool focusFirstControl)
         {
-            ArgumentNullException.ThrowIfNull(window);
+            ArgumentNullExceptionCheck.ThrowIfNull(window);
 
             if (focusFirstControl)
             {
@@ -348,7 +348,7 @@
         /// <param name="window">The window.</param>
         public static void ApplyIconFromApplication(this SystemWindow window)
         {
-            ArgumentNullException.ThrowIfNull(window);
+            ArgumentNullExceptionCheck.ThrowIfNull(window);
 
             try
             {

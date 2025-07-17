@@ -23,7 +23,7 @@
         /// <returns>The inital directory.</returns>
         protected virtual string? GetInitialDirectory(DetermineFileContext context)
         {
-            ArgumentNullException.ThrowIfNull(context);
+            ArgumentNullExceptionCheck.ThrowIfNull(context);
 
             var initialDirectory = context.InitialDirectory;
 
@@ -50,8 +50,8 @@
         /// <exception cref="ArgumentNullException">The <paramref name="fileDialog"/> is <c>null</c>.</exception>
         protected virtual async Task ConfigureFileDialogAsync(FileDialog fileDialog, DetermineFileContext context)
         {
-            ArgumentNullException.ThrowIfNull(fileDialog);
-            ArgumentNullException.ThrowIfNull(context);
+            ArgumentNullExceptionCheck.ThrowIfNull(fileDialog);
+            ArgumentNullExceptionCheck.ThrowIfNull(context);
 
             fileDialog.Filter = context.Filter;
             fileDialog.FileName = context.FileName;

@@ -9,7 +9,7 @@
         public static double MeasureAction(int timesToInvoke, string description, Action action, Action? initializationAction = null)
         {
             Argument.IsNotNullOrWhitespace(() => description);
-            ArgumentNullException.ThrowIfNull(action);
+            ArgumentNullExceptionCheck.ThrowIfNull(action);
 
             if (initializationAction is not null)
             {

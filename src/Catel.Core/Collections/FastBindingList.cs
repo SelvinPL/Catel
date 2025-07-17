@@ -159,7 +159,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="collection"/> is <c>null</c>.</exception>
         public virtual void InsertItems(IEnumerable<T> collection, int index)
         {
-            ArgumentNullException.ThrowIfNull(collection);
+            ArgumentNullExceptionCheck.ThrowIfNull(collection);
 
             using (SuspendChangeNotifications(SuspensionMode.Adding))
             {
@@ -178,7 +178,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="collection"/> is <c>null</c>.</exception>
         public virtual void InsertItems(IEnumerable collection, int index)
         {
-            ArgumentNullException.ThrowIfNull(collection);
+            ArgumentNullExceptionCheck.ThrowIfNull(collection);
 
             var list = (IList)this;
 
@@ -215,7 +215,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="collection"/> is <c>null</c>.</exception>
         public void AddItems(IEnumerable<T> collection)
         {
-            ArgumentNullException.ThrowIfNull(collection);
+            ArgumentNullExceptionCheck.ThrowIfNull(collection);
 
             using (SuspendChangeNotifications(_suspensionContext?.Mode ?? SuspensionMode.Adding))
             {
@@ -235,7 +235,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="collection"/> is <c>null</c>.</exception>
         public void AddItems(IEnumerable collection)
         {
-            ArgumentNullException.ThrowIfNull(collection);
+            ArgumentNullExceptionCheck.ThrowIfNull(collection);
 
             var list = (IList)this;
 
@@ -257,7 +257,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="collection"/> is <c>null</c>.</exception>
         public void RemoveItems(IEnumerable<T> collection)
         {
-            ArgumentNullException.ThrowIfNull(collection);
+            ArgumentNullExceptionCheck.ThrowIfNull(collection);
 
             using (SuspendChangeNotifications(_suspensionContext?.Mode ?? SuspensionMode.Removing))
             {
@@ -277,7 +277,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="collection"/> is <c>null</c>.</exception>
         public void RemoveItems(IEnumerable collection)
         {
-            ArgumentNullException.ThrowIfNull(collection);
+            ArgumentNullExceptionCheck.ThrowIfNull(collection);
 
             var list = (IList)this;
 

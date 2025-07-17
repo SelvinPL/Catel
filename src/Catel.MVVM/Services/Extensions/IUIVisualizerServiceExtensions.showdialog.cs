@@ -18,8 +18,8 @@
         /// <exception cref="ArgumentNullException">The <paramref name="viewModel"/> is <c>null</c>.</exception>
         public static async Task<UIVisualizerResult> ShowDialogAsync(this IUIVisualizerService uiVisualizerService, IViewModel viewModel, EventHandler<UICompletedEventArgs>? completedProc = null)
         {
-            ArgumentNullException.ThrowIfNull(uiVisualizerService);
-            ArgumentNullException.ThrowIfNull(viewModel);
+            ArgumentNullExceptionCheck.ThrowIfNull(uiVisualizerService);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewModel);
 
             var result = await uiVisualizerService.ShowContextAsync(new UIVisualizerContext
             {
@@ -44,7 +44,7 @@
         /// <exception cref="ArgumentException">The <paramref name="name"/> is <c>null</c> or whitespace.</exception>
         public static async Task<UIVisualizerResult> ShowDialogAsync(this IUIVisualizerService uiVisualizerService, string name, object data, EventHandler<UICompletedEventArgs>? completedProc = null)
         {
-            ArgumentNullException.ThrowIfNull(uiVisualizerService);
+            ArgumentNullExceptionCheck.ThrowIfNull(uiVisualizerService);
             Argument.IsNotNullOrWhitespace("name", name);
 
             var result = await uiVisualizerService.ShowContextAsync(new UIVisualizerContext

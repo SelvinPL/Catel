@@ -24,7 +24,7 @@
         /// <param name="commandManager">The command manager.</param>
         public CommandManagerWrapper(FrameworkElement view, ICommandManager? commandManager = null)
         {
-            ArgumentNullException.ThrowIfNull(view);
+            ArgumentNullExceptionCheck.ThrowIfNull(view);
 
             _commandManager = commandManager ?? ServiceLocator.Default.ResolveRequiredType<ICommandManager>();
 

@@ -29,7 +29,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="validator" /> is <c>null</c>.</exception>
         public void Add(IValidator validator)
         {
-            ArgumentNullException.ThrowIfNull(validator);
+            ArgumentNullExceptionCheck.ThrowIfNull(validator);
 
             _synchronizationContext.Execute(
                 () =>
@@ -48,7 +48,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="validator" /> is <c>null</c>.</exception>
         public void Remove(IValidator validator)
         {
-            ArgumentNullException.ThrowIfNull(validator);
+            ArgumentNullExceptionCheck.ThrowIfNull(validator);
 
             _synchronizationContext.Execute(() => _validators.Remove(validator));
         }
@@ -61,7 +61,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="validator" /> is <c>null</c>.</exception>
         public bool Contains(IValidator validator)
         {
-            ArgumentNullException.ThrowIfNull(validator);
+            ArgumentNullExceptionCheck.ThrowIfNull(validator);
 
             return _synchronizationContext.Execute(() => _validators.Contains(validator));
         }
@@ -77,8 +77,8 @@
         /// <exception cref="ArgumentNullException">The <paramref name="validationContext"/> is <c>null</c>.</exception>
         public void Validate(object instance, ValidationContext validationContext)
         {
-            ArgumentNullException.ThrowIfNull(instance);
-            ArgumentNullException.ThrowIfNull(validationContext);
+            ArgumentNullExceptionCheck.ThrowIfNull(instance);
+            ArgumentNullExceptionCheck.ThrowIfNull(validationContext);
 
             try
             {

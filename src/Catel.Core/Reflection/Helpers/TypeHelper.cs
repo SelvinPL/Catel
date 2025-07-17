@@ -92,8 +92,8 @@
         /// <exception cref = "ArgumentNullException">The <paramref name = "toCheck" /> is <c>null</c>.</exception>
         public static bool IsSubclassOfRawGeneric(Type generic, Type toCheck)
         {
-            ArgumentNullException.ThrowIfNull(generic);
-            ArgumentNullException.ThrowIfNull(toCheck);
+            ArgumentNullExceptionCheck.ThrowIfNull(generic);
+            ArgumentNullExceptionCheck.ThrowIfNull(toCheck);
 
             var processedType = toCheck;
 

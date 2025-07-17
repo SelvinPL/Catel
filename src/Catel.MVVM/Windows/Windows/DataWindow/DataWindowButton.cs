@@ -94,7 +94,7 @@
         /// <remarks>Text is ignored when contentBindingPath is set.</remarks>
         public DataWindowButton(string text, ICommand command, string? contentBindingPath = null, IValueConverter? contentValueConverter = null, string? visibilityBindingPath = null, IValueConverter? visibilityValueConverter = null)
         {
-            ArgumentNullException.ThrowIfNull(command);
+            ArgumentNullExceptionCheck.ThrowIfNull(command);
 
             Text = text;
             Command = command;
@@ -130,7 +130,7 @@
         public DataWindowButton(string text, string commandBindingPath, string? contentBindingPath = null, IValueConverter? contentValueConverter = null, 
             string? visibilityBindingPath = null, IValueConverter? visibilityValueConverter = null)
         {
-            ArgumentNullException.ThrowIfNull(commandBindingPath);
+            ArgumentNullExceptionCheck.ThrowIfNull(commandBindingPath);
 
             Text = text;
             CommandBindingPath = commandBindingPath;

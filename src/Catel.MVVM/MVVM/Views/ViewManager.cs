@@ -44,7 +44,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="view"/> is <c>null</c>.</exception>
         public virtual void RegisterView(IView view)
         {
-            ArgumentNullException.ThrowIfNull(view);
+            ArgumentNullExceptionCheck.ThrowIfNull(view);
 
             var viewType = view.GetType().FullName;
 
@@ -73,7 +73,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="view"/> is <c>null</c>.</exception>
         public virtual void UnregisterView(IView view)
         {
-            ArgumentNullException.ThrowIfNull(view);
+            ArgumentNullExceptionCheck.ThrowIfNull(view);
 
             var viewType = view.GetType().FullName;
 
@@ -103,7 +103,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="viewModel"/> is <c>null</c>.</exception>
         public virtual IView[] GetViewsOfViewModel(IViewModel viewModel)
         {
-            ArgumentNullException.ThrowIfNull(viewModel);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewModel);
 
             Log.Debug("Getting the views of view model '{0}'", BoxingCache.GetBoxedValue(viewModel.UniqueIdentifier));
 

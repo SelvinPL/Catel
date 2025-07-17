@@ -1282,7 +1282,7 @@
             {
                 public ClassA(InterfaceB b)
                 {
-                    ArgumentNullException.ThrowIfNull(b);
+                    ArgumentNullExceptionCheck.ThrowIfNull(b);
                 }
             }
 
@@ -1294,7 +1294,7 @@
             {
                 public ClassB(InterfaceA a)
                 {
-                    ArgumentNullException.ThrowIfNull(a);
+                    ArgumentNullExceptionCheck.ThrowIfNull(a);
                 }
             }
 

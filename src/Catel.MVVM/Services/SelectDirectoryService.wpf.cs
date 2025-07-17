@@ -12,7 +12,7 @@
         /// <inheritdoc />
         public virtual async Task<DetermineDirectoryResult> DetermineDirectoryAsync(DetermineDirectoryContext context)
         {
-            ArgumentNullException.ThrowIfNull(context);
+            ArgumentNullExceptionCheck.ThrowIfNull(context);
 
             using (var browserDialog = new FolderBrowserDialog())
             {

@@ -21,8 +21,8 @@
         /// <exception cref="ArgumentNullException">The <paramref name="languageService"/> is <c>null</c>.</exception>
         public MessageService(IDispatcherService dispatcherService, ILanguageService languageService)
         {
-            ArgumentNullException.ThrowIfNull(dispatcherService);
-            ArgumentNullException.ThrowIfNull(languageService);
+            ArgumentNullExceptionCheck.ThrowIfNull(dispatcherService);
+            ArgumentNullExceptionCheck.ThrowIfNull(languageService);
 
             _dispatcherService = dispatcherService;
             _languageService = languageService;

@@ -17,7 +17,7 @@
         public static TState? LoadState<TState>(this IStateService stateService, string key)
             where TState : class, IState
         {
-            ArgumentNullException.ThrowIfNull(stateService);
+            ArgumentNullExceptionCheck.ThrowIfNull(stateService);
 
             var state = stateService.LoadState(key);
 

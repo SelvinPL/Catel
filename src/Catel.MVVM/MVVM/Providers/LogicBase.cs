@@ -120,7 +120,7 @@
                 return;
             }
 
-            ArgumentNullException.ThrowIfNull(targetView);
+            ArgumentNullExceptionCheck.ThrowIfNull(targetView);
 
             var targetViewType = targetView.GetType();
 
@@ -1209,7 +1209,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="viewModelType"/> is <c>null</c>.</exception>
         private IViewModel? ConstructViewModelUsingArgumentOrDefaultConstructor(object? injectionObject, Type viewModelType)
         {
-            ArgumentNullException.ThrowIfNull(viewModelType);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewModelType);
 
             if (ViewModelBehavior == LogicViewModelBehavior.Injected)
             {

@@ -50,8 +50,8 @@
         /// <exception cref="ArgumentNullException">The <paramref name="viewModelContainer"/> is <c>null</c>.</exception>
         public ViewToViewModelMappingHelper(IViewModelContainer viewModelContainer, IObjectAdapter objectAdapter)
         {
-            ArgumentNullException.ThrowIfNull(viewModelContainer);
-            ArgumentNullException.ThrowIfNull(objectAdapter);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewModelContainer);
+            ArgumentNullExceptionCheck.ThrowIfNull(objectAdapter);
 
             Log.Debug("Initializing view model container to manage ViewToViewModel mappings");
 
@@ -111,7 +111,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="viewModelContainer"/> is <c>null</c>.</exception>
         public static void InitializeViewToViewModelMappings(IViewModelContainer viewModelContainer, IObjectAdapter objectAdapter)
         {
-            ArgumentNullException.ThrowIfNull(viewModelContainer);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewModelContainer);
 
             if (_viewModelContainers.ContainsKey(viewModelContainer))
             {
@@ -128,7 +128,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="viewModelContainer"/> is <c>null</c>.</exception>
         public static void UninitializeViewToViewModelMappings(IViewModelContainer viewModelContainer)
         {
-            ArgumentNullException.ThrowIfNull(viewModelContainer);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewModelContainer);
 
             if (_viewModelContainers.TryGetValue(viewModelContainer, out var viewToViewModelMappingHelper))
             {
@@ -406,8 +406,8 @@
         /// </remarks>
         private void TransferValue(object source, string sourcePropertyName, object target, string targetPropertyName)
         {
-            ArgumentNullException.ThrowIfNull(source);
-            ArgumentNullException.ThrowIfNull(target);
+            ArgumentNullExceptionCheck.ThrowIfNull(source);
+            ArgumentNullExceptionCheck.ThrowIfNull(target);
             Argument.IsNotNullOrWhitespace("sourcePropertyName", sourcePropertyName);
             Argument.IsNotNullOrWhitespace("targetPropertyName", targetPropertyName);
 

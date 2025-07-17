@@ -24,7 +24,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="view"/> is <c>null</c>.</exception>
         public WeakViewInfo(IView view, bool isViewLoaded = false)
         {
-            ArgumentNullException.ThrowIfNull(view);
+            ArgumentNullExceptionCheck.ThrowIfNull(view);
 
             _view = new WeakReference(view);
             Initialize(view, isViewLoaded);
@@ -38,7 +38,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="viewLoadState" /> is <c>null</c>.</exception>
         public WeakViewInfo(IViewLoadState viewLoadState, bool isViewLoaded = false)
         {
-            ArgumentNullException.ThrowIfNull(viewLoadState);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewLoadState);
 
             _view = new WeakReference(viewLoadState);
             Initialize(viewLoadState, isViewLoaded);

@@ -33,7 +33,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="interfaceType"/> is <c>null</c>.</exception>
         public MissingTypeEventArgs(Type interfaceType, object? tag)
         {
-            ArgumentNullException.ThrowIfNull(interfaceType);
+            ArgumentNullExceptionCheck.ThrowIfNull(interfaceType);
 
             InterfaceType = interfaceType;
             RegistrationType = RegistrationType.Singleton;

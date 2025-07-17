@@ -213,7 +213,7 @@
         public void RegisterCommand(string commandName, ICommand command, IViewModel? viewModel = null)
         {
             Argument.IsNotNullOrWhitespace("commandName", commandName);
-            ArgumentNullException.ThrowIfNull(command);
+            ArgumentNullExceptionCheck.ThrowIfNull(command);
 
             if (CatelEnvironment.IsInDesignMode)
             {
@@ -246,7 +246,7 @@
         public void RegisterAction(string commandName, Action action)
         {
             Argument.IsNotNullOrWhitespace("commandName", commandName);
-            ArgumentNullException.ThrowIfNull(action);
+            ArgumentNullExceptionCheck.ThrowIfNull(action);
 
             if (CatelEnvironment.IsInDesignMode)
             {
@@ -279,7 +279,7 @@
         public void RegisterAction(string commandName, Action<object?> action)
         {
             Argument.IsNotNullOrWhitespace("commandName", commandName);
-            ArgumentNullException.ThrowIfNull(action);
+            ArgumentNullExceptionCheck.ThrowIfNull(action);
 
             if (CatelEnvironment.IsInDesignMode)
             {
@@ -312,7 +312,7 @@
         public void UnregisterCommand(string commandName, ICommand command)
         {
             Argument.IsNotNullOrWhitespace("commandName", commandName);
-            ArgumentNullException.ThrowIfNull(command);
+            ArgumentNullExceptionCheck.ThrowIfNull(command);
 
             if (CatelEnvironment.IsInDesignMode)
             {
@@ -345,7 +345,7 @@
         public void UnregisterAction(string commandName, Action action)
         {
             Argument.IsNotNullOrWhitespace("commandName", commandName);
-            ArgumentNullException.ThrowIfNull(action);
+            ArgumentNullExceptionCheck.ThrowIfNull(action);
 
             if (CatelEnvironment.IsInDesignMode)
             {
@@ -378,7 +378,7 @@
         public void UnregisterAction(string commandName, Action<object?> action)
         {
             Argument.IsNotNullOrWhitespace("commandName", commandName);
-            ArgumentNullException.ThrowIfNull(action);
+            ArgumentNullExceptionCheck.ThrowIfNull(action);
 
             if (CatelEnvironment.IsInDesignMode)
             {

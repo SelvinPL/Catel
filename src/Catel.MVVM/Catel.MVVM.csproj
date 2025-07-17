@@ -1,6 +1,6 @@
-<Project Sdk="MSBuild.Sdk.Extras">
+﻿<Project Sdk="MSBuild.Sdk.Extras">
   <PropertyGroup>
-    <TargetFrameworks>net8.0-windows;net9.0-windows</TargetFrameworks>
+    <TargetFrameworks>net8.0-windows;net9.0-windows;net48</TargetFrameworks>
     <AssemblyName>Catel.MVVM</AssemblyName>
     <RootNamespace>Catel</RootNamespace>
     <DefaultLanguage>en-US</DefaultLanguage>
@@ -31,17 +31,30 @@
     <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.135" />
     <PackageReference Include="ModuleInit.Fody" Version="2.1.1" PrivateAssets="all" />
     <PackageReference Include="Obsolete.Fody" Version="5.3.1" PrivateAssets="all" />
-    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup Condition=" $(TargetFramework.StartsWith('net8.0')) ">
     <!-- No net8.0 specific packages yet -->
+    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+    <Using Include="System.ArgumentNullException" Alias="ArgumentNullExceptionCheck" />
   </ItemGroup>
 
   <ItemGroup Condition=" $(TargetFramework.StartsWith('net9.0')) ">
     <!-- No net9.0 specific packages yet -->
+    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+    <Using Include="System.ArgumentNullException" Alias="ArgumentNullExceptionCheck" />
   </ItemGroup>
 
+  <PropertyGroup Condition=" $(TargetFramework.StartsWith('net4')) ">
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <ItemGroup Condition=" $(TargetFramework.StartsWith('net4')) ">
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Using Include="Catel.Compatibility" />
+  </ItemGroup>
+  
   <ItemGroup>
     <ProjectReference Include="..\Catel.Core\Catel.Core.csproj" />
   </ItemGroup>

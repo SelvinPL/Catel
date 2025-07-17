@@ -80,8 +80,8 @@
         /// <exception cref="ArgumentNullException">The <paramref name="viewLoadState" /> is <c>null</c>.</exception>
         public void AddView(IViewLoadState viewLoadState)
         {
-            ArgumentNullException.ThrowIfNull(viewLoadState);
-            ArgumentNullException.ThrowIfNull(viewLoadState.View);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewLoadState);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewLoadState.View);
 
             var viewInfo = new WeakViewInfo(viewLoadState.View);
             viewInfo.Loaded += OnViewInfoLoaded;

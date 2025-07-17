@@ -76,7 +76,7 @@
         /// <exception cref="System.ArgumentNullException">The <paramref name="isExpiredFunc" /> is <c>null</c>.</exception>
         public static ExpirationPolicy Custom(Func<bool> isExpiredFunc, Action? resetAction = null)
         {
-            ArgumentNullException.ThrowIfNull(isExpiredFunc);
+            ArgumentNullExceptionCheck.ThrowIfNull(isExpiredFunc);
 
             return new CustomExpirationPolicy(isExpiredFunc, resetAction);
         }

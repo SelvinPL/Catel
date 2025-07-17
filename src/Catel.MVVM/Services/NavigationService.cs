@@ -31,8 +31,8 @@
 #pragma warning restore IDE1006 // Naming Styles
         public NavigationService(INavigationRootService navigationRootService, IUrlLocator urlLocator)
         {
-            ArgumentNullException.ThrowIfNull(navigationRootService);
-            ArgumentNullException.ThrowIfNull(urlLocator);
+            ArgumentNullExceptionCheck.ThrowIfNull(navigationRootService);
+            ArgumentNullExceptionCheck.ThrowIfNull(urlLocator);
 
             NavigationRootService = navigationRootService;
             UrlLocator = urlLocator;
@@ -102,7 +102,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="uri"/> is <c>null</c>.</exception>
         public virtual Task NavigateAsync(Uri uri)
         {
-            ArgumentNullException.ThrowIfNull(uri);
+            ArgumentNullExceptionCheck.ThrowIfNull(uri);
 
             return NavigateToUriAsync(uri);
         }
@@ -135,7 +135,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="viewModelType"/> is <c>null</c>.</exception>
         public virtual async Task NavigateAsync(Type viewModelType, Dictionary<string, object>? parameters = null)
         {
-            ArgumentNullException.ThrowIfNull(viewModelType);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewModelType);
 
             var viewModelTypeName = viewModelType.GetSafeFullName();
             string? uri = null;
@@ -172,7 +172,7 @@
         public virtual void Register(Type viewModelType, Uri uri)
         {
             Argument.ImplementsInterface("viewModelType", viewModelType, typeof(IViewModel));
-            ArgumentNullException.ThrowIfNull(uri);
+            ArgumentNullExceptionCheck.ThrowIfNull(uri);
 
             Register(viewModelType.GetSafeFullName(), uri);
         }
@@ -189,7 +189,7 @@
         public virtual void Register(string name, Uri uri)
         {
             Argument.IsNotNullOrWhitespace("name", name);
-            ArgumentNullException.ThrowIfNull(uri);
+            ArgumentNullExceptionCheck.ThrowIfNull(uri);
 
             lock (RegisteredUris)
             {
@@ -213,7 +213,7 @@
         /// </returns>
         public virtual bool Unregister(Type viewModelType)
         {
-            ArgumentNullException.ThrowIfNull(viewModelType);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewModelType);
 
             return Unregister(viewModelType.GetSafeFullName());
         }

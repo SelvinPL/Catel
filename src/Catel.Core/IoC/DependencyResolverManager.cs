@@ -64,8 +64,8 @@
         /// <exception cref="ArgumentNullException">The <paramref name="dependencyResolver" /> is <c>null</c>.</exception>
         public virtual void RegisterDependencyResolverForInstance(object instance, IDependencyResolver dependencyResolver)
         {
-            ArgumentNullException.ThrowIfNull(instance);
-            ArgumentNullException.ThrowIfNull(dependencyResolver);
+            ArgumentNullExceptionCheck.ThrowIfNull(instance);
+            ArgumentNullExceptionCheck.ThrowIfNull(dependencyResolver);
 
             lock (_lockObject)
             {
@@ -82,7 +82,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="instance"/> is <c>null</c>.</exception>
         public virtual IDependencyResolver GetDependencyResolverForInstance(object instance)
         {
-            ArgumentNullException.ThrowIfNull(instance);
+            ArgumentNullExceptionCheck.ThrowIfNull(instance);
 
             lock (_lockObject)
             {
@@ -104,8 +104,8 @@
         /// <exception cref="ArgumentNullException">The <paramref name="dependencyResolver" /> is <c>null</c>.</exception>
         public virtual void RegisterDependencyResolverForType(Type type, IDependencyResolver dependencyResolver)
         {
-            ArgumentNullException.ThrowIfNull(type);
-            ArgumentNullException.ThrowIfNull(dependencyResolver);
+            ArgumentNullExceptionCheck.ThrowIfNull(type);
+            ArgumentNullExceptionCheck.ThrowIfNull(dependencyResolver);
 
             lock (_lockObject)
             {
@@ -122,7 +122,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="type"/> is <c>null</c>.</exception>
         public virtual IDependencyResolver GetDependencyResolverForType(Type type)
         {
-            ArgumentNullException.ThrowIfNull(type);
+            ArgumentNullExceptionCheck.ThrowIfNull(type);
 
             lock (_lockObject)
             {

@@ -20,7 +20,7 @@
         /// </summary>
         public AutoCompletionService(IObjectAdapter objectAdapter)
         {
-            ArgumentNullException.ThrowIfNull(objectAdapter);
+            ArgumentNullExceptionCheck.ThrowIfNull(objectAdapter);
 
             _objectAdapter = objectAdapter;
         }
@@ -35,7 +35,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="source"/> is <c>null</c>.</exception>
         public virtual string[] GetAutoCompleteValues(string property, string filter, IEnumerable source)
         {
-            ArgumentNullException.ThrowIfNull(source);
+            ArgumentNullExceptionCheck.ThrowIfNull(source);
 
             if (source is string)
             {

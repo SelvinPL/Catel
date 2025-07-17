@@ -33,8 +33,8 @@
         public ModelInfo(string name, Type propertyType, ModelAttribute attribute)
         {
             Argument.IsNotNullOrWhitespace("name", name);
-            ArgumentNullException.ThrowIfNull(propertyType);
-            ArgumentNullException.ThrowIfNull(attribute);
+            ArgumentNullExceptionCheck.ThrowIfNull(propertyType);
+            ArgumentNullExceptionCheck.ThrowIfNull(attribute);
 
             Name = name;
             PropertyType = propertyType;

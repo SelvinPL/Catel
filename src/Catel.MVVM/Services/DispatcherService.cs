@@ -21,7 +21,7 @@
         /// </summary>
         public DispatcherService(IDispatcherProviderService dispatcherProviderService)
         {
-            ArgumentNullException.ThrowIfNull(dispatcherProviderService);
+            ArgumentNullExceptionCheck.ThrowIfNull(dispatcherProviderService);
 
             _dispatcherProviderService = dispatcherProviderService;
         }
@@ -61,7 +61,7 @@
         /// <returns>The task representing the action.</returns>
         public virtual Task InvokeAsync(Action action)
         {
-            ArgumentNullException.ThrowIfNull(action);
+            ArgumentNullExceptionCheck.ThrowIfNull(action);
 
             var dispatcher = CurrentDispatcher;
 
@@ -80,7 +80,7 @@
         /// <returns>The task representing the action.</returns>
         public virtual Task InvokeAsync(Delegate method, params object[] args)
         {
-            ArgumentNullException.ThrowIfNull(method);
+            ArgumentNullExceptionCheck.ThrowIfNull(method);
 
             var dispatcher = CurrentDispatcher;
 
@@ -99,7 +99,7 @@
         /// <returns>The task representing the action.</returns>
         public virtual Task<T> InvokeAsync<T>(Func<T> func)
         {
-            ArgumentNullException.ThrowIfNull(func);
+            ArgumentNullExceptionCheck.ThrowIfNull(func);
 
             var dispatcher = CurrentDispatcher;
 
@@ -117,7 +117,7 @@
         /// <returns>The task representing the asynchronous operation</returns>
         public virtual Task InvokeTaskAsync(Func<Task> actionAsync)
         {
-            ArgumentNullException.ThrowIfNull(actionAsync);
+            ArgumentNullExceptionCheck.ThrowIfNull(actionAsync);
 
             var dispatcher = CurrentDispatcher;
 
@@ -136,7 +136,7 @@
         /// <returns>The task representing the asynchronous operation</returns>
         public virtual Task InvokeTaskAsync(Func<CancellationToken, Task> actionAsync, CancellationToken cancellationToken)
         {
-            ArgumentNullException.ThrowIfNull(actionAsync);
+            ArgumentNullExceptionCheck.ThrowIfNull(actionAsync);
 
             var dispatcher = CurrentDispatcher;
 
@@ -154,7 +154,7 @@
         /// <returns>The task representing the asynchronous operation with the returning value</returns>
         public virtual Task<T> InvokeTaskAsync<T>(Func<Task<T>> funcAsync)
         {
-            ArgumentNullException.ThrowIfNull(funcAsync);
+            ArgumentNullExceptionCheck.ThrowIfNull(funcAsync);
 
             var dispatcher = CurrentDispatcher;
 
@@ -174,7 +174,7 @@
         /// <returns>The task representing the asynchronous operation with the returning value</returns>
         public virtual Task<T> InvokeTaskAsync<T>(Func<CancellationToken, Task<T>> funcAsync, CancellationToken cancellationToken)
         {
-            ArgumentNullException.ThrowIfNull(funcAsync);
+            ArgumentNullExceptionCheck.ThrowIfNull(funcAsync);
 
             var dispatcher = CurrentDispatcher;
 
@@ -194,7 +194,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="action" /> is <c>null</c>.</exception>
         public virtual void Invoke(Action action, bool onlyInvokeWhenNoAccess = true)
         {
-            ArgumentNullException.ThrowIfNull(action);
+            ArgumentNullExceptionCheck.ThrowIfNull(action);
 
             var dispatcher = CurrentDispatcher;
             DispatcherExtensions.Invoke(dispatcher, action, onlyInvokeWhenNoAccess);
@@ -208,7 +208,7 @@
         /// <c>Dispatcher.BeginInvoke</c> will be used.</param>
         public virtual void BeginInvoke(Action action, bool onlyBeginInvokeWhenNoAccess = true)
         {
-            ArgumentNullException.ThrowIfNull(action);
+            ArgumentNullExceptionCheck.ThrowIfNull(action);
 
             var dispatcher = CurrentDispatcher;
             DispatcherExtensions.BeginInvoke(dispatcher, action, onlyBeginInvokeWhenNoAccess);

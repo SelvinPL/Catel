@@ -72,7 +72,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="viewModel"/> is <c>null</c>.</exception>
         private ViewModelCommandManager(IViewModel viewModel)
         {
-            ArgumentNullException.ThrowIfNull(viewModel);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewModel);
 
             Log.Debug("Creating a ViewModelCommandManager for view model '{0}' with unique identifier '{1}'", viewModel.GetType().FullName, BoxingCache.GetBoxedValue(viewModel.UniqueIdentifier));
 
@@ -108,7 +108,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="viewModel"/> is <c>null</c>.</exception>
         public static IViewModelCommandManager Create(IViewModel viewModel)
         {
-            ArgumentNullException.ThrowIfNull(viewModel);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewModel);
 
             lock (_instances)
             {
@@ -201,7 +201,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="handler"/> is <c>null</c>.</exception>
         public void AddHandler(AsyncCommandHandler handler)
         {
-            ArgumentNullException.ThrowIfNull(handler);
+            ArgumentNullExceptionCheck.ThrowIfNull(handler);
 
             lock (_lock)
             {

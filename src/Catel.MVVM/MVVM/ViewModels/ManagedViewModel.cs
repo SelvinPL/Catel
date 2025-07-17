@@ -35,7 +35,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="viewModelType"/> is <c>null</c>.</exception>
         public ManagedViewModel(Type viewModelType)
         {
-            ArgumentNullException.ThrowIfNull(viewModelType);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewModelType);
 
             ViewModelType = viewModelType;
         }
@@ -88,7 +88,7 @@
         /// <exception cref="WrongViewModelTypeException">The <paramref name="viewModel"/> is not of the right type.</exception>
         public void AddViewModelInstance(IViewModel viewModel)
         {
-            ArgumentNullException.ThrowIfNull(viewModel);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewModel);
 
             if (viewModel.GetType() != ViewModelType)
             {
@@ -115,7 +115,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="viewModel"/> is <c>null</c>.</exception>
         public void RemoveViewModelInstance(IViewModel viewModel)
         {
-            ArgumentNullException.ThrowIfNull(viewModel);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewModel);
 
             lock (_lock)
             {

@@ -33,7 +33,7 @@
         /// <param name="parentViewStack">The parent view stack. Can be <c>null</c> for root view stacks.</param>
         private ViewStack(IView view, bool isViewLoaded, ViewStack? parentViewStack)
         {
-            ArgumentNullException.ThrowIfNull(view);
+            ArgumentNullExceptionCheck.ThrowIfNull(view);
 
             _viewInfo = new WeakViewInfo(view, isViewLoaded);
             _viewInfo.Loaded += OnViewLoaded;
@@ -137,8 +137,8 @@
         /// <returns><c>true</c> if added, <c>false</c> otherwise.</returns>
         public bool AddChild(ViewStack viewStack, ViewStack parentViewStack)
         {
-            ArgumentNullException.ThrowIfNull(viewStack); 
-            ArgumentNullException.ThrowIfNull(parentViewStack);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewStack); 
+            ArgumentNullExceptionCheck.ThrowIfNull(parentViewStack);
 
             if (ReferenceEquals(this, parentViewStack))
             {
@@ -171,8 +171,8 @@
         /// <returns><c>true</c> if added, <c>false</c> otherwise.</returns>
         public bool AddChild(IView view, ViewStack parentViewStack)
         {
-            ArgumentNullException.ThrowIfNull(view);
-            ArgumentNullException.ThrowIfNull(parentViewStack);
+            ArgumentNullExceptionCheck.ThrowIfNull(view);
+            ArgumentNullExceptionCheck.ThrowIfNull(parentViewStack);
 
             var viewStack = new ViewStack(view, false, parentViewStack);
 

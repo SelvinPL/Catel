@@ -12,7 +12,7 @@
         /// <inheritdoc/>
         public virtual async Task<DetermineOpenFileResult> DetermineFileAsync(DetermineOpenFileContext context)
         {
-            ArgumentNullException.ThrowIfNull(context);
+            ArgumentNullExceptionCheck.ThrowIfNull(context);
 
             var fileDialog = new OpenFileDialog();
 

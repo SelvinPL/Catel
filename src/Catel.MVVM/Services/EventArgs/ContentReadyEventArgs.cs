@@ -15,7 +15,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="imageStream"/> is <c>null</c>.</exception>
         public ContentReadyEventArgs(Stream imageStream)
         {
-            ArgumentNullException.ThrowIfNull(imageStream);
+            ArgumentNullExceptionCheck.ThrowIfNull(imageStream);
 
             ImageStream = imageStream;
         }

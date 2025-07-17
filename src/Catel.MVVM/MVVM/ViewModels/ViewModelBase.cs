@@ -665,7 +665,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="childViewModel"/> is <c>null</c>.</exception>
         void IRelationalViewModel.RegisterChildViewModel(IViewModel childViewModel)
         {
-            ArgumentNullException.ThrowIfNull(childViewModel);
+            ArgumentNullExceptionCheck.ThrowIfNull(childViewModel);
 
             lock (ChildViewModels)
             {
@@ -753,7 +753,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="childViewModel"/> is <c>null</c>.</exception>
         void IRelationalViewModel.UnregisterChildViewModel(IViewModel childViewModel)
         {
-            ArgumentNullException.ThrowIfNull(childViewModel);
+            ArgumentNullExceptionCheck.ThrowIfNull(childViewModel);
 
             lock (ChildViewModels)
             {
@@ -1086,7 +1086,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="modelProperty"/> is <c>null</c>.</exception>
         protected void ResetModel(string modelProperty, ModelCleanUpMode modelCleanUpMode)
         {
-            ArgumentNullException.ThrowIfNull(modelProperty);
+            ArgumentNullExceptionCheck.ThrowIfNull(modelProperty);
 
             var model = GetValue<IModel>(modelProperty);
 

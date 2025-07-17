@@ -21,9 +21,9 @@
             [TestCase]
             public void ThrowsArgumentExceptionForNullExpression()
             {
-#pragma warning disable CTL0008 // Use ArgumentNullException.ThrowIfNull for argument check
+#pragma warning disable CTL0008 // Use ArgumentNullExceptionCheck.ThrowIfNull for argument check
                 Assert.Throws<ArgumentNullException>(() => Argument.IsNotNull<object>(null));
-#pragma warning restore CTL0008 // Use ArgumentNullException.ThrowIfNull for argument check
+#pragma warning restore CTL0008 // Use ArgumentNullExceptionCheck.ThrowIfNull for argument check
             }
 
             [TestCase]
@@ -40,9 +40,9 @@
 
             private void IsNotNullInvokation(object param01)
             {
-#pragma warning disable CTL0008 // Use ArgumentNullException.ThrowIfNull for argument check
+#pragma warning disable CTL0008 // Use ArgumentNullExceptionCheck.ThrowIfNull for argument check
                 Argument.IsNotNull(() => param01);
-#pragma warning restore CTL0008 // Use ArgumentNullException.ThrowIfNull for argument check
+#pragma warning restore CTL0008 // Use ArgumentNullExceptionCheck.ThrowIfNull for argument check
             }
         }
 

@@ -79,8 +79,8 @@
         {
             public AdvancedDependencyInjectionTestClass(int intValue, IMessageService messageService, INavigationService navigationService)
             {
-                ArgumentNullException.ThrowIfNull(messageService);
-                ArgumentNullException.ThrowIfNull(navigationService);
+                ArgumentNullExceptionCheck.ThrowIfNull(messageService);
+                ArgumentNullExceptionCheck.ThrowIfNull(navigationService);
 
                 IntValue = intValue;
             }
@@ -88,9 +88,9 @@
             public AdvancedDependencyInjectionTestClass(int intValue, IMessageService messageService, INavigationService navigationService,
                 IDummyDependency dependency)
             {
-                ArgumentNullException.ThrowIfNull(messageService);
-                ArgumentNullException.ThrowIfNull(navigationService);
-                ArgumentNullException.ThrowIfNull(dependency);
+                ArgumentNullExceptionCheck.ThrowIfNull(messageService);
+                ArgumentNullExceptionCheck.ThrowIfNull(navigationService);
+                ArgumentNullExceptionCheck.ThrowIfNull(dependency);
 
                 IntValue = intValue;
                 Dependency = dependency;
@@ -99,8 +99,8 @@
             public AdvancedDependencyInjectionTestClass(string stringValue, int intValue, long longValue, IMessageService messageService,
                 INavigationService navigationService)
             {
-                ArgumentNullException.ThrowIfNull(messageService);
-                ArgumentNullException.ThrowIfNull(navigationService);
+                ArgumentNullExceptionCheck.ThrowIfNull(messageService);
+                ArgumentNullExceptionCheck.ThrowIfNull(navigationService);
 
                 StringValue = stringValue;
                 IntValue = intValue;
@@ -110,9 +110,9 @@
             public AdvancedDependencyInjectionTestClass(string stringValue, int intValue, long longValue, IMessageService messageService,
                 INavigationService navigationService, IDummyDependency dependency)
             {
-                ArgumentNullException.ThrowIfNull(messageService);
-                ArgumentNullException.ThrowIfNull(navigationService);
-                ArgumentNullException.ThrowIfNull(dependency);
+                ArgumentNullExceptionCheck.ThrowIfNull(messageService);
+                ArgumentNullExceptionCheck.ThrowIfNull(navigationService);
+                ArgumentNullExceptionCheck.ThrowIfNull(dependency);
 
                 StringValue = stringValue;
                 IntValue = intValue;

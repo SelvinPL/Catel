@@ -17,8 +17,8 @@
         /// <exception cref="ArgumentNullException">The <paramref name="property"/> is <c>null</c>.</exception>
         public ViewModelToModelAttribute(string model = "", string property = "")
         {
-            ArgumentNullException.ThrowIfNull(model);
-            ArgumentNullException.ThrowIfNull(property);
+            ArgumentNullExceptionCheck.ThrowIfNull(model);
+            ArgumentNullExceptionCheck.ThrowIfNull(property);
 
             Model = model;
             Property = property;

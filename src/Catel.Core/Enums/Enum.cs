@@ -81,7 +81,7 @@
         /// <exception cref="ArgumentException">The value of <paramref name="inputEnumValue"/> cannot be converted to a value of <typeparamref name="TEnum"/>.</exception>
         public static TEnum ConvertFromOtherEnumValue(object inputEnumValue)
         {
-            ArgumentNullException.ThrowIfNull(inputEnumValue);
+            ArgumentNullExceptionCheck.ThrowIfNull(inputEnumValue);
             Argument.IsOfType("inputEnumValue", inputEnumValue, typeof(Enum));
 
             var value = inputEnumValue.ToString();

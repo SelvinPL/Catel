@@ -17,7 +17,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="viewModelLocator" /> is <c>null</c>.</exception>
         public static void Register<TView, TViewModel>(this IViewModelLocator viewModelLocator)
         {
-            ArgumentNullException.ThrowIfNull(viewModelLocator);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewModelLocator);
 
             viewModelLocator.Register(typeof(TView), typeof(TViewModel));
         }
@@ -34,7 +34,7 @@
         /// the cache must be cleared manually.</remarks>
         public static Type? ResolveViewModel<TView>(this IViewModelLocator viewModelLocator)
         {
-            ArgumentNullException.ThrowIfNull(viewModelLocator);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewModelLocator);
 
             return viewModelLocator.ResolveViewModel(typeof(TView));
         }

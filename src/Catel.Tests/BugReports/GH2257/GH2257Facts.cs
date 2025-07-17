@@ -43,7 +43,7 @@
 
         public WorkingClass(IDispatcherService dispatcherService)
         {
-            ArgumentNullException.ThrowIfNull(dispatcherService);
+            ArgumentNullExceptionCheck.ThrowIfNull(dispatcherService);
 
             _dispatcherService = dispatcherService;
         }

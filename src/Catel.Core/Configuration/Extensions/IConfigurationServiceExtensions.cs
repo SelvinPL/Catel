@@ -16,7 +16,7 @@
         /// <returns>The task that can be awaited.</returns>
         public static async Task SaveAsync(this IConfigurationService configurationService)
         {
-            ArgumentNullException.ThrowIfNull(configurationService);
+            ArgumentNullExceptionCheck.ThrowIfNull(configurationService);
 
             foreach (var configurationContainer in Enum<ConfigurationContainer>.GetValues())
             {
@@ -32,7 +32,7 @@
         /// <returns>The task that can be awaited.</returns>
         public static async Task LoadAsync(this IConfigurationService configurationService)
         {
-            ArgumentNullException.ThrowIfNull(configurationService);
+            ArgumentNullExceptionCheck.ThrowIfNull(configurationService);
 
             foreach (var configurationContainer in Enum<ConfigurationContainer>.GetValues())
             {

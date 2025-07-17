@@ -15,7 +15,7 @@
         /// <returns>List of properties.</returns>
         public static string[] GetProperties(this IView view)
         {
-            ArgumentNullException.ThrowIfNull(view);
+            ArgumentNullExceptionCheck.ThrowIfNull(view);
 
             var viewProperties = ((FrameworkElement)view).GetDependencyProperties();
             return viewProperties.Select(x => x.PropertyName).ToArray();
@@ -28,7 +28,7 @@
         /// <returns>List of properties.</returns>
         public static string[] GetProperties(Type viewType)
         {
-            ArgumentNullException.ThrowIfNull(viewType);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewType);
 
             var viewProperties = Catel.Windows.Data.DependencyPropertyHelper.GetDependencyProperties(viewType);
             return viewProperties.Select(x => x.PropertyName).ToArray();
@@ -42,9 +42,9 @@
         /// <param name="handler">The handler.</param>
         public static void SubscribeToPropertyChanged(this IView view, string propertyName, EventHandler<PropertyChangedEventArgs> handler)
         {
-            ArgumentNullException.ThrowIfNull(view);
+            ArgumentNullExceptionCheck.ThrowIfNull(view);
             Argument.IsNotNullOrWhitespace("propertyName", propertyName);
-            ArgumentNullException.ThrowIfNull(handler);
+            ArgumentNullExceptionCheck.ThrowIfNull(handler);
 
             ((FrameworkElement)view).SubscribeToDependencyProperty(propertyName, (sender, e) =>
             {

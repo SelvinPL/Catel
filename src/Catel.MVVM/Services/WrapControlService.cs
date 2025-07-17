@@ -78,8 +78,8 @@
         /// </remarks>
         public Grid Wrap(FrameworkElement frameworkElement, WrapControlServiceWrapOptions wrapOptions, DataWindowButton[] buttons, ContentControl? parentContentControl = null)
         {
-            ArgumentNullException.ThrowIfNull(frameworkElement);
-            ArgumentNullException.ThrowIfNull(buttons);
+            ArgumentNullExceptionCheck.ThrowIfNull(frameworkElement);
+            ArgumentNullExceptionCheck.ThrowIfNull(buttons);
 
             if (!string.IsNullOrWhiteSpace(frameworkElement.Name))
             {
@@ -271,7 +271,7 @@
         /// <exception cref="ArgumentOutOfRangeException">The <paramref name="wrapOption"/> is <see cref="WrapControlServiceWrapOptions.All"/>.</exception>
         public FrameworkElement? GetWrappedElement(Grid wrappedGrid, WrapControlServiceWrapOptions wrapOption)
         {
-            ArgumentNullException.ThrowIfNull(wrappedGrid);
+            ArgumentNullExceptionCheck.ThrowIfNull(wrappedGrid);
 
             if (wrapOption == WrapControlServiceWrapOptions.All)
             {
@@ -303,7 +303,7 @@
         /// <exception cref="ArgumentOutOfRangeException">The <paramref name="controlName"/> is not a valid control name.</exception>
         public FrameworkElement? GetWrappedElement(Grid wrappedGrid, string controlName)
         {
-            ArgumentNullException.ThrowIfNull(wrappedGrid);
+            ArgumentNullExceptionCheck.ThrowIfNull(wrappedGrid);
             Argument.IsNotNullOrEmpty("controlName", controlName);
 
             if ((controlName != WrapControlServiceControlNames.DefaultOkButtonName) &&
@@ -325,7 +325,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="contentControl"/> is <c>null</c>.</exception>
         private static void SetControlContent(object contentControl, FrameworkElement? element)
         {
-            ArgumentNullException.ThrowIfNull(contentControl);
+            ArgumentNullExceptionCheck.ThrowIfNull(contentControl);
 
             var propertyInfo = contentControl.GetType().GetPropertyEx("Content");
             propertyInfo?.SetValue(contentControl, element, null);

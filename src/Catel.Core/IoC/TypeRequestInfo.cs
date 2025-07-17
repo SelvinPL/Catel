@@ -18,7 +18,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="type"/> is <c>null</c>.</exception>
         public TypeRequestInfo(Type type, object? tag = null)
         {
-            ArgumentNullException.ThrowIfNull(type);
+            ArgumentNullExceptionCheck.ThrowIfNull(type);
 
             Type = type;
             Tag = tag;

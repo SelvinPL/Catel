@@ -13,7 +13,7 @@
         /// <param name="result">The result.</param>
         public UICompletedEventArgs(UIVisualizerResult result)
         {
-            ArgumentNullException.ThrowIfNull(result);
+            ArgumentNullExceptionCheck.ThrowIfNull(result);
 
             Context = result.Context;
             Result = result;

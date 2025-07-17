@@ -339,7 +339,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="binding"/> is <c>null</c>.</exception>
         private static Binding CreateBindingCopy(Binding binding)
         {
-            ArgumentNullException.ThrowIfNull(binding);
+            ArgumentNullExceptionCheck.ThrowIfNull(binding);
 
             // Copy all properties with a setter via reflection
             // only copy when value is not null, otherwise exceptions will be thrown

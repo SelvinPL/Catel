@@ -12,7 +12,7 @@
     {
         public static Expression<Action<object, TField>>? CreateFieldSetter<TField>(Type modelType, string fieldName)
         {
-            ArgumentNullException.ThrowIfNull(modelType);
+            ArgumentNullExceptionCheck.ThrowIfNull(modelType);
             Argument.IsNotNullOrWhitespace(nameof(fieldName), fieldName);
 
             var field = modelType.GetFieldEx(fieldName);

@@ -55,8 +55,8 @@
         /// <param name="predicate">The predicate.</param>
         public static void EnsureThemeIsLoaded(Uri resourceUri, Func<bool> predicate)
         {
-            ArgumentNullException.ThrowIfNull(resourceUri);
-            ArgumentNullException.ThrowIfNull(predicate);
+            ArgumentNullExceptionCheck.ThrowIfNull(resourceUri);
+            ArgumentNullExceptionCheck.ThrowIfNull(predicate);
 
             try
             {

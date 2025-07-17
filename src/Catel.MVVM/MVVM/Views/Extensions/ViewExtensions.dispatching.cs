@@ -16,8 +16,8 @@
         /// <exception cref="ArgumentNullException">The <paramref name="action"/> is <c>null</c>.</exception>
         public static void Dispatch(this IView view, Action action)
         {
-            ArgumentNullException.ThrowIfNull(view);
-            ArgumentNullException.ThrowIfNull(action);
+            ArgumentNullExceptionCheck.ThrowIfNull(view);
+            ArgumentNullExceptionCheck.ThrowIfNull(action);
 
             FinalDispatch(view, action);
         }

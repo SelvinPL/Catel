@@ -770,7 +770,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="fieldValidationResult"/> is <c>null</c>.</exception>
         public void Add(IFieldValidationResult fieldValidationResult)
         {
-            ArgumentNullException.ThrowIfNull(fieldValidationResult);
+            ArgumentNullExceptionCheck.ThrowIfNull(fieldValidationResult);
 
             lock (_fieldValidations)
             {
@@ -787,7 +787,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="fieldValidationResult"/> is <c>null</c>.</exception>
         public void Remove(IFieldValidationResult fieldValidationResult)
         {
-            ArgumentNullException.ThrowIfNull(fieldValidationResult);
+            ArgumentNullExceptionCheck.ThrowIfNull(fieldValidationResult);
 
             lock (_fieldValidations)
             {
@@ -804,7 +804,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="businessRuleValidationResult"/> is <c>null</c>.</exception>
         public void Add(IBusinessRuleValidationResult businessRuleValidationResult)
         {
-            ArgumentNullException.ThrowIfNull(businessRuleValidationResult);
+            ArgumentNullExceptionCheck.ThrowIfNull(businessRuleValidationResult);
 
             lock (_businessRuleValidations)
             {
@@ -821,7 +821,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="businessRuleValidationResult"/> is <c>null</c>.</exception>
         public void Remove(IBusinessRuleValidationResult businessRuleValidationResult)
         {
-            ArgumentNullException.ThrowIfNull(businessRuleValidationResult);
+            ArgumentNullExceptionCheck.ThrowIfNull(businessRuleValidationResult);
 
             lock (_businessRuleValidations)
             {

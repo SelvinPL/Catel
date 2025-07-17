@@ -40,7 +40,7 @@
         /// <exception cref="ArgumentException">If <paramref name="name"/> is null or a whitespace.</exception>
         public Log(string name, Type targetType)
         {
-            ArgumentNullException.ThrowIfNull(targetType);
+            ArgumentNullExceptionCheck.ThrowIfNull(targetType);
             Argument.IsNotNullOrWhitespace("name", name);
 
             Name = name;

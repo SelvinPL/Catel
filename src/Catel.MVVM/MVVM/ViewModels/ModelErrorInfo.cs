@@ -47,7 +47,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="model"/> is <c>null</c>.</exception>
         public ModelErrorInfo(object model)
         {
-            ArgumentNullException.ThrowIfNull(model);
+            ArgumentNullExceptionCheck.ThrowIfNull(model);
 
             _model = model;
 

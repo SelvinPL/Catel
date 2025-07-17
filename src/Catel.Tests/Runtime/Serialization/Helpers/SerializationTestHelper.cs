@@ -72,7 +72,7 @@
 
         public static string ToXmlString(this object model)
         {
-            ArgumentNullException.ThrowIfNull(model);
+            ArgumentNullExceptionCheck.ThrowIfNull(model);
 
             using (var memoryStream = new MemoryStream())
             {

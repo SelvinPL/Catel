@@ -302,7 +302,7 @@
         /// </remarks>
         public void RegisterCommand(ICommand command, IViewModel? viewModel = null)
         {
-            ArgumentNullException.ThrowIfNull(command);
+            ArgumentNullExceptionCheck.ThrowIfNull(command);
 
             lock (_lock)
             {
@@ -322,7 +322,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="command"/> is <c>null</c>.</exception>
         public void UnregisterCommand(ICommand command)
         {
-            ArgumentNullException.ThrowIfNull(command);
+            ArgumentNullExceptionCheck.ThrowIfNull(command);
 
             lock (_lock)
             {
@@ -348,7 +348,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="action"/> is <c>null</c>.</exception>
         public void RegisterAction(Action action)
         {
-            ArgumentNullException.ThrowIfNull(action);
+            ArgumentNullExceptionCheck.ThrowIfNull(action);
 
             lock (_lock)
             {
@@ -365,7 +365,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="action"/> is <c>null</c>.</exception>
         public void UnregisterAction(Action action)
         {
-            ArgumentNullException.ThrowIfNull(action);
+            ArgumentNullExceptionCheck.ThrowIfNull(action);
 
             lock (_lock)
             {
@@ -389,7 +389,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="action"/> is <c>null</c>.</exception>
         public void RegisterAction(Action<object?> action)
         {
-            ArgumentNullException.ThrowIfNull(action);
+            ArgumentNullExceptionCheck.ThrowIfNull(action);
 
             lock (_lock)
             {
@@ -406,7 +406,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="action"/> is <c>null</c>.</exception>
         public void UnregisterAction(Action<object?> action)
         {
-            ArgumentNullException.ThrowIfNull(action);
+            ArgumentNullExceptionCheck.ThrowIfNull(action);
 
             lock (_lock)
             {
@@ -429,7 +429,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="action"/> is <c>null</c>.</exception>
         public void RegisterAction(Func<Task> action)
         {
-            ArgumentNullException.ThrowIfNull(action);
+            ArgumentNullExceptionCheck.ThrowIfNull(action);
 
             lock (_lock)
             {
@@ -446,7 +446,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="action"/> is <c>null</c>.</exception>
         public void UnregisterAction(Func<Task> action)
         {
-            ArgumentNullException.ThrowIfNull(action);
+            ArgumentNullExceptionCheck.ThrowIfNull(action);
 
             lock (_lock)
             {
@@ -469,7 +469,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="action"/> is <c>null</c>.</exception>
         public void RegisterAction(Func<object?, Task> action)
         {
-            ArgumentNullException.ThrowIfNull(action);
+            ArgumentNullExceptionCheck.ThrowIfNull(action);
 
             lock (_lock)
             {
@@ -486,7 +486,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="action"/> is <c>null</c>.</exception>
         public void UnregisterAction(Func<object?, Task> action)
         {
-            ArgumentNullException.ThrowIfNull(action);
+            ArgumentNullExceptionCheck.ThrowIfNull(action);
 
             lock (_lock)
             {

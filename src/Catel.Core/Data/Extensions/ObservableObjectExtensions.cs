@@ -14,7 +14,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="sender"/> is <c>null</c>.</exception>
         public static void RaiseAllPropertiesChanged(this ObservableObject sender)
         {
-            ArgumentNullException.ThrowIfNull(sender);
+            ArgumentNullExceptionCheck.ThrowIfNull(sender);
 
             sender.RaisePropertyChanged(string.Empty);
         }

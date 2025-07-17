@@ -47,7 +47,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="frameworkElement"/> is <c>null</c>.</exception>
         public static List<DependencyPropertyInfo> GetDependencyProperties(this FrameworkElement frameworkElement)
         {
-            ArgumentNullException.ThrowIfNull(frameworkElement);
+            ArgumentNullExceptionCheck.ThrowIfNull(frameworkElement);
 
             return GetDependencyProperties(frameworkElement.GetType());
         }
@@ -60,7 +60,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="viewType"/> is <c>null</c>.</exception>
         public static List<DependencyPropertyInfo> GetDependencyProperties(Type viewType)
         {
-            ArgumentNullException.ThrowIfNull(viewType);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewType);
 
             EnsureItemInCache(viewType);
 
@@ -77,7 +77,7 @@
         /// <exception cref="ArgumentException">The <paramref name="propertyName"/> is <c>null</c> or whitespace.</exception>
         public static DependencyProperty? GetDependencyPropertyByName(this FrameworkElement frameworkElement, string propertyName)
         {
-            ArgumentNullException.ThrowIfNull(frameworkElement);
+            ArgumentNullExceptionCheck.ThrowIfNull(frameworkElement);
             Argument.IsNotNullOrWhitespace("propertyName", propertyName);
 
             var viewType = frameworkElement.GetType();
@@ -102,8 +102,8 @@
         /// <returns>The name of the dependency property or <c>null</c> if the name could not be found.</returns>
         public static string? GetDependencyPropertyName(this FrameworkElement frameworkElement, DependencyProperty dependencyProperty)
         {
-            ArgumentNullException.ThrowIfNull(frameworkElement);
-            ArgumentNullException.ThrowIfNull(dependencyProperty);
+            ArgumentNullExceptionCheck.ThrowIfNull(frameworkElement);
+            ArgumentNullExceptionCheck.ThrowIfNull(dependencyProperty);
 
             EnsureItemInCache(frameworkElement.GetType());
 
@@ -123,7 +123,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="viewType"/> is <c>null</c>.</exception>
         public static string GetDependencyPropertyCacheKeyPrefix(Type viewType)
         {
-            ArgumentNullException.ThrowIfNull(viewType);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewType);
 
             return _cacheKeyCache.GetFromCacheOrFetch(viewType, () => viewType.GetSafeFullName().Replace(".", "_"));
         }
@@ -138,7 +138,7 @@
         /// <exception cref="ArgumentException">The <paramref name="propertyName"/> is <c>null</c> or whitespace.</exception>
         public static string GetDependencyPropertyCacheKey(Type viewType, string propertyName)
         {
-            ArgumentNullException.ThrowIfNull(viewType);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewType);
             Argument.IsNotNullOrWhitespace("propertyName", propertyName);
 
             return string.Format("{0}_{1}", GetDependencyPropertyCacheKeyPrefix(viewType), propertyName);

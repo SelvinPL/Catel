@@ -20,7 +20,7 @@
         /// <returns>object or <c>null</c> if the ancestor is not found.</returns>
         public static object? FindLogicalOrVisualAncestor(this DependencyObject startElement, Predicate<object> condition, int maxDepth = -1)
         {
-            ArgumentNullException.ThrowIfNull(startElement);
+            ArgumentNullExceptionCheck.ThrowIfNull(startElement);
 
             // Try to be super fast, simple mode (just 1 level)
 
@@ -239,7 +239,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="element"/> is <c>null</c>.</exception>
         public static DependencyObject? GetLogicalParent(this DependencyObject element)
         {
-            ArgumentNullException.ThrowIfNull(element);
+            ArgumentNullExceptionCheck.ThrowIfNull(element);
 
             try
             {
@@ -259,7 +259,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="element"/> is <c>null</c>.</exception>
         public static DependencyObject? GetVisualParent(this DependencyObject element)
         {
-            ArgumentNullException.ThrowIfNull(element);
+            ArgumentNullExceptionCheck.ThrowIfNull(element);
 
             try
             {
@@ -393,7 +393,7 @@
         /// <exception cref="ArgumentException">The <paramref name="name"/> is <c>null</c> or whitespace.</exception>
         public static bool IsElementWithName(this DependencyObject dependencyObject, string name)
         {
-            ArgumentNullException.ThrowIfNull(dependencyObject);
+            ArgumentNullExceptionCheck.ThrowIfNull(dependencyObject);
             Argument.IsNotNullOrWhitespace("name", name);
 
             var frameworkElement = dependencyObject as FrameworkElement;

@@ -31,8 +31,8 @@
         /// <exception cref="ArgumentNullException">The <paramref name="typeFactory" /> is <c>null</c>.</exception>
         public ViewModelFactory(ITypeFactory typeFactory, IServiceLocator serviceLocator)
         {
-            ArgumentNullException.ThrowIfNull(typeFactory);
-            ArgumentNullException.ThrowIfNull(serviceLocator);
+            ArgumentNullExceptionCheck.ThrowIfNull(typeFactory);
+            ArgumentNullExceptionCheck.ThrowIfNull(serviceLocator);
 
             _typeFactory = typeFactory;
             _serviceLocator = serviceLocator;
@@ -105,7 +105,7 @@
         /// <exception cref="ArgumentException">The <paramref name="viewModelType"/> does not implement the <see cref="IViewModel"/> interface.</exception>
         public virtual IViewModel? CreateViewModel(Type viewModelType, object? dataContext, object? tag = null)
         {
-            ArgumentNullException.ThrowIfNull(viewModelType);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewModelType);
             Argument.ImplementsInterface("viewModelType", viewModelType, typeof(IViewModel));
 
             IViewModel? viewModel = null;

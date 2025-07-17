@@ -28,7 +28,7 @@
         /// <returns>The data context subscription mode.</returns>
         public virtual DataContextSubscriptionMode GetDataContextSubscriptionMode(Type viewType)
         {
-            ArgumentNullException.ThrowIfNull(viewType);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewType);
 
             return DefaultDataContextSubscriptionMode;
         }

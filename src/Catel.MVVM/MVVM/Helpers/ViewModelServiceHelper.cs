@@ -24,7 +24,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="serviceLocator"/> is <c>null</c>.</exception>
         public static void RegisterDefaultViewModelServices(IServiceLocator serviceLocator)
         {
-            ArgumentNullException.ThrowIfNull(serviceLocator);
+            ArgumentNullExceptionCheck.ThrowIfNull(serviceLocator);
 
             try
             {

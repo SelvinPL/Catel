@@ -23,7 +23,7 @@
         /// <param name="navigationRoot">The navigation root.</param>
         public NavigationAdapter(IView navigationTarget, object navigationRoot)
         {
-            ArgumentNullException.ThrowIfNull(navigationRoot);
+            ArgumentNullExceptionCheck.ThrowIfNull(navigationRoot);
 
             NavigationTarget = navigationTarget;
             NavigationTargetType = navigationTarget.GetType();
@@ -177,7 +177,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="uri"/> is <c>null</c>.</exception>
         private static string GetUriWithoutParameters(Uri uri)
         {
-            ArgumentNullException.ThrowIfNull(uri);
+            ArgumentNullExceptionCheck.ThrowIfNull(uri);
 
             return GetUriWithoutParameters(uri.ToString());
         }

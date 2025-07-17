@@ -82,7 +82,7 @@
         public static bool TryGetAttribute<TAttribute>(this MemberInfo memberInfo, [NotNullWhen(true)] out TAttribute? attribute)
             where TAttribute : Attribute
         {
-            ArgumentNullException.ThrowIfNull(memberInfo);
+            ArgumentNullExceptionCheck.ThrowIfNull(memberInfo);
 
             var result = TryGetAttribute(memberInfo, typeof(TAttribute), out var tempAttribute);
 
@@ -103,8 +103,8 @@
         /// <exception cref="ArgumentNullException">The <paramref name="attributeType"/> is <c>null</c>.</exception>
         public static bool TryGetAttribute(this MemberInfo memberInfo, Type attributeType, [NotNullWhen(true)] out Attribute? attribute)
         {
-            ArgumentNullException.ThrowIfNull(memberInfo);
-            ArgumentNullException.ThrowIfNull(attributeType);
+            ArgumentNullExceptionCheck.ThrowIfNull(memberInfo);
+            ArgumentNullExceptionCheck.ThrowIfNull(attributeType);
 
             attribute = null;
             var attributes = memberInfo.GetCustomAttributes(attributeType, false) as Attribute[];
@@ -129,7 +129,7 @@
         public static bool TryGetAttribute<TAttribute>(this Type type, [NotNullWhen(true)]out TAttribute? attribute)
             where TAttribute : Attribute
         {
-            ArgumentNullException.ThrowIfNull(type);
+            ArgumentNullExceptionCheck.ThrowIfNull(type);
 
             var result = TryGetAttribute(type, typeof(TAttribute), out var tempAttribute);
 
@@ -148,8 +148,8 @@
         /// <exception cref="ArgumentNullException">The <paramref name="attributeType" /> is <c>null</c>.</exception>
         public static bool TryGetAttribute(this Type type, Type attributeType, [NotNullWhen(true)] out Attribute? attribute)
         {
-            ArgumentNullException.ThrowIfNull(type);
-            ArgumentNullException.ThrowIfNull(attributeType);
+            ArgumentNullExceptionCheck.ThrowIfNull(type);
+            ArgumentNullExceptionCheck.ThrowIfNull(attributeType);
 
             attribute = null;
             var attributes = type.GetCustomAttributesEx(attributeType, false) as Attribute[];

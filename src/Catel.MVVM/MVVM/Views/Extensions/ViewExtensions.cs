@@ -14,7 +14,7 @@
         /// <returns></returns>
         public static object? GetParent(this IView view)
         {
-            ArgumentNullException.ThrowIfNull(view);
+            ArgumentNullExceptionCheck.ThrowIfNull(view);
 
             return ((System.Windows.FrameworkElement)view).GetParent();
         }

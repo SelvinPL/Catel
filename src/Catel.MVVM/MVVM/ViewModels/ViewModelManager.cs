@@ -124,8 +124,8 @@
         /// <exception cref="ArgumentNullException">The <paramref name="model"/> is <c>null</c>.</exception>
         public void RegisterModel(IViewModel viewModel, object model)
         {
-            ArgumentNullException.ThrowIfNull(viewModel);
-            ArgumentNullException.ThrowIfNull(model);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewModel);
+            ArgumentNullExceptionCheck.ThrowIfNull(model);
 
             var viewModelTypeName = ObjectToStringHelper.ToTypeString(viewModel);
             var modelTypeName = ObjectToStringHelper.ToTypeString(model);
@@ -155,8 +155,8 @@
         /// <exception cref="ArgumentNullException">The <paramref name="model"/> is <c>null</c>.</exception>
         public void UnregisterModel(IViewModel viewModel, object model)
         {
-            ArgumentNullException.ThrowIfNull(viewModel);
-            ArgumentNullException.ThrowIfNull(model);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewModel);
+            ArgumentNullExceptionCheck.ThrowIfNull(model);
 
             var viewModelTypeName = ObjectToStringHelper.ToTypeString(viewModel);
             var modelTypeName = ObjectToStringHelper.ToTypeString(model);
@@ -191,7 +191,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="viewModel"/> is <c>null</c>.</exception>
         public void UnregisterAllModels(IViewModel viewModel)
         {
-            ArgumentNullException.ThrowIfNull(viewModel);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewModel);
 
             var viewModelTypeName = ObjectToStringHelper.ToTypeString(viewModel);
             int modelCount = 0;
@@ -218,7 +218,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="model"/> is <c>null</c>.</exception>
         public IViewModel[] GetViewModelsOfModel(object model)
         {
-            ArgumentNullException.ThrowIfNull(model);
+            ArgumentNullExceptionCheck.ThrowIfNull(model);
 
             var modelType = ObjectToStringHelper.ToTypeString(model);
 
@@ -307,7 +307,7 @@
         /// <returns>The child view models.</returns>
         public IEnumerable<IRelationalViewModel> GetChildViewModels(IViewModel parentViewModel)
         {
-            ArgumentNullException.ThrowIfNull(parentViewModel);
+            ArgumentNullExceptionCheck.ThrowIfNull(parentViewModel);
 
             var childViewModels = GetChildViewModels(parentViewModel.UniqueIdentifier);
 
@@ -384,7 +384,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="viewModel"/> is <c>null</c>.</exception>
         private void RegisterViewModelInstanceInternal(IViewModel viewModel)
         {
-            ArgumentNullException.ThrowIfNull(viewModel);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewModel);
 
             var managedViewModel = GetManagedViewModel(viewModel.GetType());
             managedViewModel.AddViewModelInstance(viewModel);
@@ -407,7 +407,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="viewModel"/> is <c>null</c>.</exception>
         private void UnregisterViewModelInstanceInternal(IViewModel viewModel)
         {
-            ArgumentNullException.ThrowIfNull(viewModel);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewModel);
 
             var managedViewModel = GetManagedViewModel(viewModel.GetType());
             managedViewModel.RemoveViewModelInstance(viewModel);

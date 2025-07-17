@@ -24,8 +24,8 @@
         /// <exception cref="ArgumentNullException">The <paramref name="viewType"/> is <c>null</c>.</exception>
         public void Register(Type viewModelType, Type viewType)
         {
-            ArgumentNullException.ThrowIfNull(viewModelType);
-            ArgumentNullException.ThrowIfNull(viewType);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewModelType);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewType);
 
             var viewModelTypeName = TypeHelper.GetTypeNameWithAssembly(viewModelType.GetSafeFullName(true));
             var viewTypeName = TypeHelper.GetTypeNameWithAssembly(viewType.GetSafeFullName(true));
@@ -44,8 +44,8 @@
         /// </returns>
         public virtual bool IsCompatible(Type viewModelType, Type viewType)
         {
-            ArgumentNullException.ThrowIfNull(viewModelType);
-            ArgumentNullException.ThrowIfNull(viewType);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewModelType);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewType);
 
             var viewModelTypeName = TypeHelper.GetTypeNameWithAssembly(viewModelType.GetSafeFullName(true));
             var viewTypeName = TypeHelper.GetTypeNameWithAssembly(viewType.GetSafeFullName(true));
@@ -62,7 +62,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="viewModelType"/> is <c>null</c>.</exception>
         public virtual Type? ResolveView(Type viewModelType)
         {
-            ArgumentNullException.ThrowIfNull(viewModelType);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewModelType);
 
             var viewModelTypeName = TypeHelper.GetTypeNameWithAssembly(viewModelType.GetSafeFullName(true));
 

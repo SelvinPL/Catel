@@ -23,7 +23,7 @@
         /// <exception cref="System.ArgumentNullException">The <paramref name="expression" /> is <c>null</c>.</exception>
         private static ParameterInfo<T> GetParameterInfo<T>(Expression<Func<T>> expression)
         {
-            ArgumentNullException.ThrowIfNull(expression);
+            ArgumentNullExceptionCheck.ThrowIfNull(expression);
 
             var parameterExpression = (MemberExpression)expression.Body;
             var parameterInfo = new ParameterInfo<T>(parameterExpression.Member.Name, expression.Compile().Invoke());
@@ -43,7 +43,7 @@
         public static void IsNotNull<T>(Expression<Func<T>> expression)
             where T : class
         {
-            ArgumentNullException.ThrowIfNull(expression);
+            ArgumentNullExceptionCheck.ThrowIfNull(expression);
 
             var parameterInfo = GetParameterInfo(expression);
             IsNotNull(parameterInfo.Name, parameterInfo.Value);
@@ -59,7 +59,7 @@
         [DebuggerNonUserCode, DebuggerStepThrough]
         public static void IsNotNullOrEmpty(Expression<Func<string>> expression)
         {
-            ArgumentNullException.ThrowIfNull(expression);
+            ArgumentNullExceptionCheck.ThrowIfNull(expression);
 
             var parameterInfo = GetParameterInfo(expression);
             IsNotNullOrEmpty(parameterInfo.Name, (string)parameterInfo.Value);
@@ -75,7 +75,7 @@
         [DebuggerNonUserCode, DebuggerStepThrough]
         public static void IsNotEmpty(Expression<Func<Guid>> expression)
         {
-            ArgumentNullException.ThrowIfNull(expression);
+            ArgumentNullExceptionCheck.ThrowIfNull(expression);
 
             var parameterInfo = GetParameterInfo(expression);
             IsNotEmpty(parameterInfo.Name, (Guid)parameterInfo.Value);
@@ -91,7 +91,7 @@
         [DebuggerNonUserCode, DebuggerStepThrough]
         public static void IsNotNullOrEmpty(Expression<Func<Guid?>> expression)
         {
-            ArgumentNullException.ThrowIfNull(expression);
+            ArgumentNullExceptionCheck.ThrowIfNull(expression);
 
             var parameterInfo = GetParameterInfo(expression);
             IsNotNullOrEmpty(parameterInfo.Name, (Guid?)parameterInfo.Value);
@@ -107,7 +107,7 @@
         [DebuggerNonUserCode, DebuggerStepThrough]
         public static void IsNotNullOrWhitespace(Expression<Func<string>> expression)
         {
-            ArgumentNullException.ThrowIfNull(expression);
+            ArgumentNullExceptionCheck.ThrowIfNull(expression);
 
             var parameterInfo = GetParameterInfo(expression);
             IsNotNullOrWhitespace(parameterInfo.Name, (string)parameterInfo.Value);
@@ -123,7 +123,7 @@
         [DebuggerNonUserCode, DebuggerStepThrough]
         public static void IsNotNullOrEmptyArray(Expression<Func<Array>> expression)
         {
-            ArgumentNullException.ThrowIfNull(expression);
+            ArgumentNullExceptionCheck.ThrowIfNull(expression);
 
             var parameterInfo = GetParameterInfo(expression);
             IsNotNullOrEmptyArray(parameterInfo.Name, (Array)parameterInfo.Value);
@@ -144,7 +144,7 @@
         [DebuggerNonUserCode, DebuggerStepThrough]
         public static void IsNotOutOfRange<T>(Expression<Func<T>> expression, T minimumValue, T maximumValue, Func<T, T, T, bool> validation)
         {
-            ArgumentNullException.ThrowIfNull(expression);
+            ArgumentNullExceptionCheck.ThrowIfNull(expression);
 
             var parameterInfo = GetParameterInfo(expression);
             IsNotOutOfRange(parameterInfo.Name, (T)parameterInfo.Value, minimumValue, maximumValue, validation);
@@ -164,7 +164,7 @@
         public static void IsNotOutOfRange<T>(Expression<Func<T>> expression, T minimumValue, T maximumValue)
             where T : IComparable
         {
-            ArgumentNullException.ThrowIfNull(expression);
+            ArgumentNullExceptionCheck.ThrowIfNull(expression);
 
             var parameterInfo = GetParameterInfo(expression);
             IsNotOutOfRange(parameterInfo.Name, (T)parameterInfo.Value, minimumValue, maximumValue);
@@ -184,7 +184,7 @@
         [DebuggerNonUserCode, DebuggerStepThrough]
         public static void IsMinimal<T>(Expression<Func<T>> expression, T minimumValue, Func<T, T, bool> validation)
         {
-            ArgumentNullException.ThrowIfNull(expression);
+            ArgumentNullExceptionCheck.ThrowIfNull(expression);
 
             var parameterInfo = GetParameterInfo(expression);
             IsMinimal(parameterInfo.Name, (T)parameterInfo.Value, minimumValue, validation);
@@ -203,7 +203,7 @@
         public static void IsMinimal<T>(Expression<Func<T>> expression, T minimumValue)
             where T : IComparable
         {
-            ArgumentNullException.ThrowIfNull(expression);
+            ArgumentNullExceptionCheck.ThrowIfNull(expression);
 
             var parameterInfo = GetParameterInfo(expression);
             IsMinimal(parameterInfo.Name, (T)parameterInfo.Value, minimumValue);
@@ -223,7 +223,7 @@
         [DebuggerNonUserCode, DebuggerStepThrough]
         public static void IsMaximum<T>(Expression<Func<T>> expression, T maximumValue, Func<T, T, bool> validation)
         {
-            ArgumentNullException.ThrowIfNull(expression);
+            ArgumentNullExceptionCheck.ThrowIfNull(expression);
 
             var parameterInfo = GetParameterInfo(expression);
             IsMaximum(parameterInfo.Name, (T)parameterInfo.Value, maximumValue, validation);
@@ -242,7 +242,7 @@
         public static void IsMaximum<T>(Expression<Func<T>> expression, T maximumValue)
             where T : IComparable
         {
-            ArgumentNullException.ThrowIfNull(expression);
+            ArgumentNullExceptionCheck.ThrowIfNull(expression);
 
             var parameterInfo = GetParameterInfo(expression);
             IsMaximum(parameterInfo.Name, (T)parameterInfo.Value, maximumValue);
@@ -261,7 +261,7 @@
         public static void ImplementsInterface<T>(Expression<Func<T>> expression, Type interfaceType)
             where T : class
         {
-            ArgumentNullException.ThrowIfNull(expression);
+            ArgumentNullExceptionCheck.ThrowIfNull(expression);
 
             var parameterInfo = GetParameterInfo(expression);
             if (parameterInfo.Value is Type parameterType)
@@ -287,7 +287,7 @@
         public static void ImplementsOneOfTheInterfaces<T>(Expression<Func<T>> expression, Type[] interfaceTypes)
             where T : class
         {
-            ArgumentNullException.ThrowIfNull(expression);
+            ArgumentNullExceptionCheck.ThrowIfNull(expression);
 
             var parameterInfo = GetParameterInfo(expression);
             if (parameterInfo.Value is Type parameterType)
@@ -312,8 +312,8 @@
         public static void IsOfType<T>(Expression<Func<T>> expression, Type requiredType)
             where T : class
         {
-            ArgumentNullException.ThrowIfNull(expression);
-            ArgumentNullException.ThrowIfNull(requiredType);
+            ArgumentNullExceptionCheck.ThrowIfNull(expression);
+            ArgumentNullExceptionCheck.ThrowIfNull(requiredType);
 
             var parameterInfo = GetParameterInfo(expression);
             if (parameterInfo.Value is Type parameterType)
@@ -339,7 +339,7 @@
         public static void IsOfOneOfTheTypes<T>(Expression<Func<T>> expression, Type[] requiredTypes)
             where T : class
         {
-            ArgumentNullException.ThrowIfNull(expression);
+            ArgumentNullExceptionCheck.ThrowIfNull(expression);
 
             var parameterInfo = GetParameterInfo(expression);
             if (parameterInfo.Value is Type parameterType)
@@ -365,7 +365,7 @@
         public static void IsNotOfType<T>(Expression<Func<T>> expression, Type notRequiredType)
             where T : class
         {
-            ArgumentNullException.ThrowIfNull(expression);
+            ArgumentNullExceptionCheck.ThrowIfNull(expression);
 
             var parameterInfo = GetParameterInfo(expression);
             if (parameterInfo.Value is Type parameterType)
@@ -391,7 +391,7 @@
         public static void IsNotOfOneOfTheTypes<T>(Expression<Func<T>> expression, Type[] notRequiredTypes)
             where T : class
         {
-            ArgumentNullException.ThrowIfNull(expression);
+            ArgumentNullExceptionCheck.ThrowIfNull(expression);
 
             var parameterInfo = GetParameterInfo(expression);
             if (parameterInfo.Value is Type parameterType)
@@ -415,7 +415,7 @@
         [DebuggerNonUserCode, DebuggerStepThrough]
         public static void IsNotMatch(Expression<Func<string>> expression, string pattern, RegexOptions regexOptions = RegexOptions.None)
         {
-            ArgumentNullException.ThrowIfNull(expression);
+            ArgumentNullExceptionCheck.ThrowIfNull(expression);
 
             var parameterInfo = GetParameterInfo(expression);
             IsNotMatch(parameterInfo.Name, (string)parameterInfo.Value, pattern, regexOptions);
@@ -432,7 +432,7 @@
         [DebuggerNonUserCode, DebuggerStepThrough]
         public static void IsMatch(Expression<Func<string>> expression, string pattern, RegexOptions regexOptions = RegexOptions.None)
         {
-            ArgumentNullException.ThrowIfNull(expression);
+            ArgumentNullExceptionCheck.ThrowIfNull(expression);
 
             var parameterInfo = GetParameterInfo(expression);
             IsMatch(parameterInfo.Name, (string)parameterInfo.Value, pattern, regexOptions);
@@ -450,7 +450,7 @@
         [DebuggerNonUserCode, DebuggerStepThrough]
         public static void IsValid<T>(Expression<Func<T>> expression, Func<T, bool> validation)
         {
-            ArgumentNullException.ThrowIfNull(expression);
+            ArgumentNullExceptionCheck.ThrowIfNull(expression);
 
             var parameterInfo = GetParameterInfo(expression);
             IsValid(parameterInfo.Name, (T)parameterInfo.Value, validation);
@@ -468,7 +468,7 @@
         [DebuggerNonUserCode, DebuggerStepThrough]
         public static void IsValid<T>(Expression<Func<T>> expression, Func<bool> validation)
         {
-            ArgumentNullException.ThrowIfNull(expression);
+            ArgumentNullExceptionCheck.ThrowIfNull(expression);
 
             var parameterInfo = GetParameterInfo(expression);
             IsValid(parameterInfo.Name, (T)parameterInfo.Value, validation);
@@ -486,7 +486,7 @@
         [DebuggerNonUserCode, DebuggerStepThrough]
         public static void IsValid<T>(Expression<Func<T>> expression, bool validation)
         {
-            ArgumentNullException.ThrowIfNull(expression);
+            ArgumentNullExceptionCheck.ThrowIfNull(expression);
 
             var parameterInfo = GetParameterInfo(expression);
             IsValid(parameterInfo.Name, (T)parameterInfo.Value, validation);
@@ -504,7 +504,7 @@
         [DebuggerNonUserCode, DebuggerStepThrough]
         public static void IsValid<T>(Expression<Func<T>> expression, IValueValidator<T> validator)
         {
-            ArgumentNullException.ThrowIfNull(expression);
+            ArgumentNullExceptionCheck.ThrowIfNull(expression);
 
             var parameterInfo = GetParameterInfo(expression);
             IsValid(parameterInfo.Name, (T)parameterInfo.Value, validator);

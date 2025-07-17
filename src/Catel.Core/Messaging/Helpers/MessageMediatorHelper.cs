@@ -26,7 +26,7 @@
         /// <exception cref="InvalidCastException">One of the methods cannot be casted to a valid message method.</exception>
         public static void SubscribeRecipient(object instance, IMessageMediator? messageMediator = null)
         {
-            ArgumentNullException.ThrowIfNull(instance);
+            ArgumentNullExceptionCheck.ThrowIfNull(instance);
 
             if (messageMediator is null)
             {
@@ -90,7 +90,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="instance"/> is <c>null</c>.</exception>
         public static void UnsubscribeRecipient(object instance, IMessageMediator? messageMediator = null)
         {
-            ArgumentNullException.ThrowIfNull(instance);
+            ArgumentNullExceptionCheck.ThrowIfNull(instance);
 
             if (messageMediator is null)
             {

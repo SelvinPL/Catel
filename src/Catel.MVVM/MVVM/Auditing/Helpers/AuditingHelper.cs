@@ -40,7 +40,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="viewModel" /> is <c>null</c>.</exception>
         public static void RegisterViewModel(IViewModel viewModel)
         {
-            ArgumentNullException.ThrowIfNull(viewModel);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewModel);
 
             var isAuditingEnabled = AuditingManager.IsAuditingEnabled;
             if (isAuditingEnabled)
@@ -63,7 +63,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="viewModel" /> is <c>null</c>.</exception>
         private static void SubscribeEvents(IViewModel viewModel)
         {
-            ArgumentNullException.ThrowIfNull(viewModel);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewModel);
 
             viewModel.PropertyChanged += OnViewModelPropertyChanged;
             viewModel.CommandExecutedAsync += OnViewModelCommandExecutedAsync;
@@ -83,7 +83,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="viewModel" /> is <c>null</c>.</exception>
         private static void UnsubscribeEvents(IViewModel viewModel)
         {
-            ArgumentNullException.ThrowIfNull(viewModel);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewModel);
 
             viewModel.PropertyChanged -= OnViewModelPropertyChanged;
             viewModel.CommandExecutedAsync -= OnViewModelCommandExecutedAsync;

@@ -30,8 +30,8 @@
         /// <exception cref="ArgumentNullException">The <paramref name="dispatcherService"/> is <c>null</c>.</exception>
         public UIVisualizerService(IViewLocator viewLocator, IDispatcherService dispatcherService)
         {
-            ArgumentNullException.ThrowIfNull(viewLocator);
-            ArgumentNullException.ThrowIfNull(dispatcherService);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewLocator);
+            ArgumentNullExceptionCheck.ThrowIfNull(dispatcherService);
 
             _viewLocator = viewLocator;
             _dispatcherService = dispatcherService;
@@ -73,7 +73,7 @@
         public virtual void Register(string name, Type windowType, bool throwExceptionIfExists = true)
         {
             Argument.IsNotNullOrWhitespace("name", name);
-            ArgumentNullException.ThrowIfNull(windowType);
+            ArgumentNullExceptionCheck.ThrowIfNull(windowType);
 
             lock (RegisteredWindows)
             {
@@ -119,7 +119,7 @@
         /// <returns>The dialog result.</returns>
         public virtual async Task<UIVisualizerResult> ShowContextAsync(UIVisualizerContext context)
         {
-            ArgumentNullException.ThrowIfNull(context);
+            ArgumentNullExceptionCheck.ThrowIfNull(context);
 
             var viewModel = context.Data as IViewModel;
             if (viewModel is not null)

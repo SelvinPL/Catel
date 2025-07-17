@@ -20,7 +20,7 @@
         /// <param name="log">The log.</param>
         public static void LogProductInfo(this ILog log)
         {
-            ArgumentNullException.ThrowIfNull(log);
+            ArgumentNullExceptionCheck.ThrowIfNull(log);
 
             Write(log, LogEvent.Info, string.Empty);
             Write(log, LogEvent.Info, "**************************************************************************");
@@ -115,7 +115,7 @@
         /// <param name="s1">The formatting argument 1.</param>
         public static void Write(this ILog log, LogEvent logEvent, string messageFormat, object s1)
         {
-            ArgumentNullException.ThrowIfNull(log);
+            ArgumentNullExceptionCheck.ThrowIfNull(log);
 
             if (!LogManager.LogInfo.IsLogEventEnabled(logEvent))
             {
@@ -135,7 +135,7 @@
         /// <param name="s2">The formatting argument 2.</param>
         public static void Write(this ILog log, LogEvent logEvent, string messageFormat, object s1, object s2)
         {
-            ArgumentNullException.ThrowIfNull(log);
+            ArgumentNullExceptionCheck.ThrowIfNull(log);
 
             if (!LogManager.LogInfo.IsLogEventEnabled(logEvent))
             {
@@ -156,7 +156,7 @@
         /// <param name="s3">The formatting argument 3.</param>
         public static void Write(this ILog log, LogEvent logEvent, string messageFormat, object s1, object s2, object s3)
         {
-            ArgumentNullException.ThrowIfNull(log);
+            ArgumentNullExceptionCheck.ThrowIfNull(log);
 
             if (!LogManager.LogInfo.IsLogEventEnabled(logEvent))
             {
@@ -178,7 +178,7 @@
         /// <param name="s4">The formatting argument 4.</param>
         public static void Write(this ILog log, LogEvent logEvent, string messageFormat, object s1, object s2, object s3, object s4)
         {
-            ArgumentNullException.ThrowIfNull(log);
+            ArgumentNullExceptionCheck.ThrowIfNull(log);
 
             if (!LogManager.LogInfo.IsLogEventEnabled(logEvent))
             {
@@ -204,7 +204,7 @@
         /// <param name="others">The formatting arguments.</param>
         public static void Write(this ILog log, LogEvent logEvent, string messageFormat, object s1, object s2, object s3, object s4, object s5, params object[] others)
         {
-            ArgumentNullException.ThrowIfNull(log);
+            ArgumentNullExceptionCheck.ThrowIfNull(log);
 
             if (!LogManager.LogInfo.IsLogEventEnabled(logEvent))
             {
@@ -236,7 +236,7 @@
         /// <param name="args">The formatting arguments.</param>
         public static void Write(this ILog log, LogEvent logEvent, string messageFormat, params object[] args)
         {
-            ArgumentNullException.ThrowIfNull(log);
+            ArgumentNullExceptionCheck.ThrowIfNull(log);
 
             if (!LogManager.LogInfo.IsLogEventEnabled(logEvent))
             {
@@ -263,7 +263,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="exception" /> is <c>null</c>.</exception>
         public static void Write(this ILog log, LogEvent logEvent, Exception exception, string messageFormat, params object[] args)
         {
-            ArgumentNullException.ThrowIfNull(log);
+            ArgumentNullExceptionCheck.ThrowIfNull(log);
 
             if (!LogManager.LogInfo.IsLogEventEnabled(logEvent))
             {
@@ -290,8 +290,8 @@
         /// <exception cref="ArgumentNullException">The <paramref name="exception" /> is <c>null</c>.</exception>
         public static void WriteWithData(this ILog log, Exception exception, string message, object? extraData, LogEvent logEvent)
         {
-            ArgumentNullException.ThrowIfNull(log);
-            ArgumentNullException.ThrowIfNull(exception);
+            ArgumentNullExceptionCheck.ThrowIfNull(log);
+            ArgumentNullExceptionCheck.ThrowIfNull(exception);
 
             if (!LogManager.LogInfo.IsLogEventEnabled(logEvent))
             {
@@ -629,7 +629,7 @@
         public static Exception ErrorAndCreateException<TException>(this ILog log, Exception? innerException, string messageFormat, params object?[] args)
             where TException : Exception
         {
-            ArgumentNullException.ThrowIfNull(log);
+            ArgumentNullExceptionCheck.ThrowIfNull(log);
 
             return ErrorAndCreateException<TException>(log, innerException, msg =>
             {
@@ -671,7 +671,7 @@
         public static Exception ErrorAndCreateException<TException>(this ILog log, Exception? innerException, Func<string, TException> createExceptionCallback, string messageFormat, params object?[] args)
             where TException : Exception
         {
-            ArgumentNullException.ThrowIfNull(log);
+            ArgumentNullExceptionCheck.ThrowIfNull(log);
 
             var message = messageFormat ?? string.Empty;
             if (args is not null && args.Length > 0)
@@ -710,7 +710,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="exception"/> is <c>null</c>.</exception>
         private static string FormatException(Exception exception, string message)
         {
-            ArgumentNullException.ThrowIfNull(exception);
+            ArgumentNullExceptionCheck.ThrowIfNull(exception);
 
             var formattedException = $"[{exception.GetType().Name}] {exception}";
 

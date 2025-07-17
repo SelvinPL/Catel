@@ -19,8 +19,8 @@
         /// <exception cref="ArgumentNullException">The <paramref name="binding"/> is <c>null</c>.</exception>
         public static object? GetBindingValue(FrameworkElement frameworkElement, BindingBase binding)
         {
-            ArgumentNullException.ThrowIfNull(frameworkElement);
-            ArgumentNullException.ThrowIfNull(binding);
+            ArgumentNullExceptionCheck.ThrowIfNull(frameworkElement);
+            ArgumentNullExceptionCheck.ThrowIfNull(binding);
 
             var evaluator = new BindingEvaluator(frameworkElement.DataContext);
             BindingOperations.SetBinding(evaluator, BindingEvaluator.ValueProperty, binding);

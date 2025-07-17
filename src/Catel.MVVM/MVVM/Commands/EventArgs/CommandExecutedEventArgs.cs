@@ -16,7 +16,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="command"/> is <c>null</c>.</exception>
         public CommandExecutedEventArgs(ICatelCommand command, object? commandParameter = null, string? commandPropertyName = null)
         {
-            ArgumentNullException.ThrowIfNull(command);
+            ArgumentNullExceptionCheck.ThrowIfNull(command);
 
             Command = command;
             CommandParameter = commandParameter;

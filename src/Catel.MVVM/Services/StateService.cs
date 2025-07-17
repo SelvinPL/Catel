@@ -20,7 +20,7 @@
         /// <param name="state">The state.</param>
         public void StoreState(string key, IState? state)
         {
-            ArgumentNullException.ThrowIfNull(key);
+            ArgumentNullExceptionCheck.ThrowIfNull(key);
 
             lock (_states)
             {
@@ -37,7 +37,7 @@
         /// <returns></returns>
         public IState? LoadState(string key)
         {
-            ArgumentNullException.ThrowIfNull(key);
+            ArgumentNullExceptionCheck.ThrowIfNull(key);
 
             lock (_states)
             {

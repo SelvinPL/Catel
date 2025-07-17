@@ -36,7 +36,7 @@
         public DependencyPropertyValueChangedEventArgs(string propertyName, DependencyProperty dependencyProperty, object? oldValue, object? newValue)
         {
             Argument.IsNotNullOrWhitespace("propertyName", propertyName);
-            ArgumentNullException.ThrowIfNull(dependencyProperty);
+            ArgumentNullExceptionCheck.ThrowIfNull(dependencyProperty);
 
             FxEventArgs = new DependencyPropertyChangedEventArgs(dependencyProperty, oldValue, newValue);
             PropertyName = propertyName;

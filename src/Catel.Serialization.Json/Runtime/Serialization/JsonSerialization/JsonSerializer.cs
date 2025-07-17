@@ -130,7 +130,7 @@ namespace Catel.Runtime.Serialization.Json
         /// <param name="configuration">The configuration.</param>
         public void Serialize(object model, JsonWriter jsonWriter, ISerializationConfiguration? configuration = null)
         {
-            ArgumentNullException.ThrowIfNull(model);
+            ArgumentNullExceptionCheck.ThrowIfNull(model);
 
             using (GetCurrentSerializationScopeManager(configuration))
             {

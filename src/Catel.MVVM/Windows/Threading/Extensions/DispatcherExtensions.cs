@@ -16,7 +16,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="dispatcher" /> is <c>null</c>.</exception>
         public static int GetThreadId(this Dispatcher dispatcher)
         {
-            ArgumentNullException.ThrowIfNull(dispatcher);
+            ArgumentNullExceptionCheck.ThrowIfNull(dispatcher);
 
             return dispatcher.Thread.ManagedThreadId;
         }

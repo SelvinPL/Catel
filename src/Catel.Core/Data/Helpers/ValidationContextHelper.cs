@@ -33,7 +33,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="validationResult"/> is <c>null</c>.</exception>
         public ValidationContextChange(IValidationResult validationResult, ValidationContextChangeType changeType)
         {
-            ArgumentNullException.ThrowIfNull(validationResult);
+            ArgumentNullExceptionCheck.ThrowIfNull(validationResult);
 
             ValidationResult = validationResult;
             ChangeType = changeType;
@@ -67,8 +67,8 @@
         /// <exception cref="ArgumentNullException">The <paramref name="secondContext"/> is <c>null</c>.</exception>
         public static List<ValidationContextChange> GetChanges(IValidationContext firstContext, IValidationContext secondContext)
         {
-            ArgumentNullException.ThrowIfNull(firstContext);
-            ArgumentNullException.ThrowIfNull(secondContext);
+            ArgumentNullExceptionCheck.ThrowIfNull(firstContext);
+            ArgumentNullExceptionCheck.ThrowIfNull(secondContext);
 
             var changes = new List<ValidationContextChange>();
 

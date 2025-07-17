@@ -19,9 +19,9 @@
         /// <exception cref="ArgumentNullException">The <paramref name="handler"/> is <c>null</c>.</exception>
         public static void SubscribeToPropertyChanged(this INotifyPropertyChanged notifyPropertyChanged, string propertyName, EventHandler<PropertyChangedEventArgs> handler)
         {
-            ArgumentNullException.ThrowIfNull(notifyPropertyChanged);
+            ArgumentNullExceptionCheck.ThrowIfNull(notifyPropertyChanged);
             Argument.IsNotNullOrWhitespace("propertyName", propertyName);
-            ArgumentNullException.ThrowIfNull(handler);
+            ArgumentNullExceptionCheck.ThrowIfNull(handler);
 
             // TODO: Check for a way to prevent memory leaks
 

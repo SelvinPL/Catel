@@ -134,7 +134,7 @@
         public ServiceLocator(IServiceLocator serviceLocator)
             : this()
         {
-            ArgumentNullException.ThrowIfNull(serviceLocator);
+            ArgumentNullExceptionCheck.ThrowIfNull(serviceLocator);
 
             _parentServiceLocator = serviceLocator;
         }
@@ -162,7 +162,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="serviceType" /> is <c>null</c>.</exception>
         public RegistrationInfo? GetRegistrationInfo(Type serviceType, object? tag = null)
         {
-            ArgumentNullException.ThrowIfNull(serviceType);
+            ArgumentNullExceptionCheck.ThrowIfNull(serviceType);
 
             lock (_lockObject)
             {
@@ -189,7 +189,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="serviceType"/> is <c>null</c>.</exception>
         public bool IsTypeRegisteredWithOrWithoutTag(Type serviceType)
         {
-            ArgumentNullException.ThrowIfNull(serviceType);
+            ArgumentNullExceptionCheck.ThrowIfNull(serviceType);
 
             lock (_lockObject)
             {
@@ -229,7 +229,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="serviceType"/> is <c>null</c>.</exception>
         public bool IsTypeRegistered(Type serviceType, object? tag = null)
         {
-            ArgumentNullException.ThrowIfNull(serviceType);
+            ArgumentNullExceptionCheck.ThrowIfNull(serviceType);
 
             var isRegistered = IsTypeRegisteredInCurrentLocator(serviceType, tag);
             if (!isRegistered && _parentServiceLocator is not null)
@@ -242,7 +242,7 @@
 
         private bool IsTypeRegisteredInCurrentLocator(Type serviceType, object? tag = null)
         {
-            ArgumentNullException.ThrowIfNull(serviceType);
+            ArgumentNullExceptionCheck.ThrowIfNull(serviceType);
 
             var serviceInfo = new ServiceInfo(serviceType, tag);
 
@@ -353,8 +353,8 @@
 
         public virtual object? ResolveTypeUsingFactory(ITypeFactory typeFactory, Type serviceType, object? tag = null)
         {
-            ArgumentNullException.ThrowIfNull(typeFactory);
-            ArgumentNullException.ThrowIfNull(serviceType);
+            ArgumentNullExceptionCheck.ThrowIfNull(typeFactory);
+            ArgumentNullExceptionCheck.ThrowIfNull(serviceType);
 
             lock (_lockObject)
             {
@@ -393,8 +393,8 @@
 
         public IEnumerable<object> ResolveTypesUsingFactory(ITypeFactory typeFactory, Type serviceType)
         {
-            ArgumentNullException.ThrowIfNull(typeFactory);
-            ArgumentNullException.ThrowIfNull(serviceType);
+            ArgumentNullExceptionCheck.ThrowIfNull(typeFactory);
+            ArgumentNullExceptionCheck.ThrowIfNull(serviceType);
 
             var resolvedInstances = new List<object>();
 
@@ -444,7 +444,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="types"/> is <c>null</c>.</exception>
         public bool AreMultipleTypesRegistered(params Type[] types)
         {
-            ArgumentNullException.ThrowIfNull(types);
+            ArgumentNullExceptionCheck.ThrowIfNull(types);
 
             lock (_lockObject)
             {
@@ -478,7 +478,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="types"/> is <c>null</c>.</exception>
         public object?[] ResolveMultipleTypes(params Type[] types)
         {
-            ArgumentNullException.ThrowIfNull(types);
+            ArgumentNullExceptionCheck.ThrowIfNull(types);
 
             lock (_lockObject)
             {
@@ -499,7 +499,7 @@
 
         public bool RemoveType(Type serviceType, object? tag = null)
         {
-            ArgumentNullException.ThrowIfNull(serviceType);
+            ArgumentNullExceptionCheck.ThrowIfNull(serviceType);
 
             var wasRemoved = false;
 
@@ -540,7 +540,7 @@
 
         public bool RemoveAllTypes(Type serviceType)
         {
-            ArgumentNullException.ThrowIfNull(serviceType);
+            ArgumentNullExceptionCheck.ThrowIfNull(serviceType);
 
             var hasRemoved = false;
 
@@ -675,8 +675,8 @@
         private void RegisterInstance(Type serviceType, object instance, object? tag, object? originalContainer)
         {
             Argument.IsOfType(nameof(instance), instance, serviceType);
-            ArgumentNullException.ThrowIfNull(serviceType);
-            ArgumentNullException.ThrowIfNull(instance);
+            ArgumentNullExceptionCheck.ThrowIfNull(serviceType);
+            ArgumentNullExceptionCheck.ThrowIfNull(instance);
 
             Log.Debug("Registering type '{0}' to instance of type '{1}'", serviceType.FullName, instance.GetType().FullName);
 
@@ -719,8 +719,8 @@
         private void RegisterType(Type serviceType, Type serviceImplementationType, object? tag, RegistrationType registrationType, bool registerIfAlreadyRegistered,
             object? originalContainer, Func<ITypeFactory, ServiceLocatorRegistration, object?>? createServiceFunc)
         {
-            ArgumentNullException.ThrowIfNull(serviceType);
-            ArgumentNullException.ThrowIfNull(serviceImplementationType);
+            ArgumentNullExceptionCheck.ThrowIfNull(serviceType);
+            ArgumentNullExceptionCheck.ThrowIfNull(serviceImplementationType);
 
             // Outside lock scope for event
             ServiceLocatorRegistration? registeredTypeInfo = null;

@@ -20,7 +20,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="e" /> is <c>null</c>.</exception>
         public static bool AllPropertiesChanged(this PropertyChangedEventArgs e)
         {
-            ArgumentNullException.ThrowIfNull(e);
+            ArgumentNullExceptionCheck.ThrowIfNull(e);
 
             return string.IsNullOrEmpty(e.PropertyName);
         }
@@ -36,7 +36,7 @@
         /// <exception cref="ArgumentException">The <paramref name="propertyName" /> is <c>null</c> or whitespace.</exception>
         public static bool HasPropertyChanged(this PropertyChangedEventArgs e, string propertyName)
         {
-            ArgumentNullException.ThrowIfNull(e);
+            ArgumentNullExceptionCheck.ThrowIfNull(e);
             Argument.IsNotNullOrWhitespace("propertyName", propertyName);
 
             return string.Equals(e.PropertyName, propertyName);
@@ -55,8 +55,8 @@
         /// <exception cref="ArgumentNullException">The <paramref name="propertyExpression" /> is <c>null</c>.</exception>
         public static bool HasPropertyChanged<TValue>(this PropertyChangedEventArgs e, Expression<Func<TValue>> propertyExpression, bool allowNested = false)
         {
-            ArgumentNullException.ThrowIfNull(e);
-            ArgumentNullException.ThrowIfNull(propertyExpression);
+            ArgumentNullExceptionCheck.ThrowIfNull(e);
+            ArgumentNullExceptionCheck.ThrowIfNull(propertyExpression);
 
             return string.Equals(e.PropertyName, PropertyHelper.GetPropertyName(propertyExpression, allowNested), StringComparison.Ordinal);
         }
@@ -75,8 +75,8 @@
         /// <exception cref="ArgumentNullException">The <paramref name="e" /> is <c>null</c>.</exception>
         public static bool HasPropertyChanged<TModel, TValue>(this PropertyChangedEventArgs e, Expression<Func<TModel, TValue>> propertyExpression, bool allowNested = false)
         {
-            ArgumentNullException.ThrowIfNull(e);
-            ArgumentNullException.ThrowIfNull(propertyExpression);
+            ArgumentNullExceptionCheck.ThrowIfNull(e);
+            ArgumentNullExceptionCheck.ThrowIfNull(propertyExpression);
 
             return string.Equals(e.PropertyName, PropertyHelper.GetPropertyName(propertyExpression, allowNested), StringComparison.Ordinal);
         }

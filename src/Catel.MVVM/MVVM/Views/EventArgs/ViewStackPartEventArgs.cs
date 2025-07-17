@@ -13,7 +13,7 @@
         /// <param name="view">The view.</param>
         public ViewStackPartEventArgs(IView view)
         {
-            ArgumentNullException.ThrowIfNull(view);
+            ArgumentNullExceptionCheck.ThrowIfNull(view);
 
             View = view;
         }

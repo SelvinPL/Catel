@@ -60,7 +60,7 @@
             ViewModelToModelMode mode, Type converterType, object[] additionalConstructorArgs, string[] additionalPropertiesToWatch)
         {
             Argument.IsNotNullOrWhitespace("viewModelProperty", viewModelProperty);
-            ArgumentNullException.ThrowIfNull(viewModelPropertyType);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewModelPropertyType);
 
             IgnoredProperties = new HashSet<string>();
             ViewModelProperty = viewModelProperty;

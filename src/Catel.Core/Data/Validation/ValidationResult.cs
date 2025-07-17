@@ -17,7 +17,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="message"/> is <c>null</c>.</exception>
         protected ValidationResult(ValidationResultType validationResultType, string message)
         {
-            ArgumentNullException.ThrowIfNull(message);
+            ArgumentNullExceptionCheck.ThrowIfNull(message);
 
             ValidationResultType = validationResultType;
             Message = message;
@@ -78,7 +78,7 @@
             : base(validationResultType, (args is null || args.Length == 0) ? messageFormat : string.Format(messageFormat, args))
         {
             Argument.IsNotNullOrWhitespace("propertyName", propertyName);
-            ArgumentNullException.ThrowIfNull(messageFormat);
+            ArgumentNullExceptionCheck.ThrowIfNull(messageFormat);
 
             PropertyName = propertyName;
         }

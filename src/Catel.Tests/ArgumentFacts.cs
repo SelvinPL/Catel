@@ -1,4 +1,4 @@
-﻿#pragma warning disable CTL0008 // Use ArgumentNullException.ThrowIfNull for argument check
+﻿#pragma warning disable CTL0008 // Use ArgumentNullExceptionCheck.ThrowIfNull for argument check
 
 namespace Catel.Tests
 {

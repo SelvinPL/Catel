@@ -278,8 +278,8 @@ namespace Catel
         [DebuggerNonUserCode, DebuggerStepThrough]
         public static void InheritsFrom(string paramName, Type type, Type baseType)
         {
-            ArgumentNullException.ThrowIfNull(type);
-            ArgumentNullException.ThrowIfNull(baseType);
+            ArgumentNullExceptionCheck.ThrowIfNull(type);
+            ArgumentNullExceptionCheck.ThrowIfNull(baseType);
 
             var runtimeBaseType = type.GetBaseTypeEx();
 
@@ -316,7 +316,7 @@ namespace Catel
         [DebuggerNonUserCode, DebuggerStepThrough]
         public static void InheritsFrom(string paramName, object instance, Type baseType)
         {
-            ArgumentNullException.ThrowIfNull(instance);
+            ArgumentNullExceptionCheck.ThrowIfNull(instance);
 
             InheritsFrom(paramName, instance.GetType(), baseType);
         }
@@ -333,7 +333,7 @@ namespace Catel
         public static void InheritsFrom<TBase>(string paramName, object instance)
             where TBase : class
         {
-            ArgumentNullException.ThrowIfNull(instance);
+            ArgumentNullExceptionCheck.ThrowIfNull(instance);
 
             var baseType = typeof(TBase);
 
@@ -351,7 +351,7 @@ namespace Catel
         [DebuggerNonUserCode, DebuggerStepThrough]
         public static void ImplementsInterface(string paramName, object instance, Type interfaceType)
         {
-            ArgumentNullException.ThrowIfNull(instance);
+            ArgumentNullExceptionCheck.ThrowIfNull(instance);
 
             ImplementsInterface(paramName, instance.GetType(), interfaceType);
         }
@@ -368,7 +368,7 @@ namespace Catel
         public static void ImplementsInterface<TInterface>(string paramName, object instance)
             where TInterface : class
         {
-            ArgumentNullException.ThrowIfNull(instance);
+            ArgumentNullExceptionCheck.ThrowIfNull(instance);
 
             var interfaceType = typeof(TInterface);
 
@@ -395,8 +395,8 @@ namespace Catel
         [DebuggerNonUserCode, DebuggerStepThrough]
         public static void ImplementsInterface(string paramName, Type type, Type interfaceType)
         {
-            ArgumentNullException.ThrowIfNull(type);
-            ArgumentNullException.ThrowIfNull(interfaceType);
+            ArgumentNullExceptionCheck.ThrowIfNull(type);
+            ArgumentNullExceptionCheck.ThrowIfNull(interfaceType);
 
             if (type.GetInterfacesEx().Any(iType => iType == interfaceType))
             {
@@ -420,7 +420,7 @@ namespace Catel
         [DebuggerNonUserCode, DebuggerStepThrough]
         public static void ImplementsOneOfTheInterfaces(string paramName, object instance, Type[] interfaceTypes)
         {
-            ArgumentNullException.ThrowIfNull(instance);
+            ArgumentNullExceptionCheck.ThrowIfNull(instance);
 
             ImplementsOneOfTheInterfaces(paramName, instance.GetType(), interfaceTypes);
         }
@@ -438,7 +438,7 @@ namespace Catel
         [DebuggerNonUserCode, DebuggerStepThrough]
         public static void ImplementsOneOfTheInterfaces(string paramName, Type type, Type[] interfaceTypes)
         {
-            ArgumentNullException.ThrowIfNull(type);
+            ArgumentNullExceptionCheck.ThrowIfNull(type);
             Argument.IsNotNullOrEmptyArray("interfaceTypes", interfaceTypes);
 
             foreach (var interfaceType in interfaceTypes)
@@ -473,8 +473,8 @@ namespace Catel
         [DebuggerNonUserCode, DebuggerStepThrough]
         public static void IsOfType(string paramName, object instance, Type requiredType)
         {
-            ArgumentNullException.ThrowIfNull(instance);
-            ArgumentNullException.ThrowIfNull(requiredType);
+            ArgumentNullExceptionCheck.ThrowIfNull(instance);
+            ArgumentNullExceptionCheck.ThrowIfNull(requiredType);
 
             IsOfType(paramName, instance.GetType(), requiredType);
         }
@@ -492,8 +492,8 @@ namespace Catel
         [DebuggerNonUserCode, DebuggerStepThrough]
         public static void IsOfType(string paramName, Type type, Type requiredType)
         {
-            ArgumentNullException.ThrowIfNull(type);
-            ArgumentNullException.ThrowIfNull(requiredType);
+            ArgumentNullExceptionCheck.ThrowIfNull(type);
+            ArgumentNullExceptionCheck.ThrowIfNull(requiredType);
 
             if (type.IsCOMObjectEx())
             {
@@ -522,7 +522,7 @@ namespace Catel
         [DebuggerNonUserCode, DebuggerStepThrough]
         public static void IsOfOneOfTheTypes(string paramName, object instance, Type[] requiredTypes)
         {
-            ArgumentNullException.ThrowIfNull(instance);
+            ArgumentNullExceptionCheck.ThrowIfNull(instance);
 
             IsOfOneOfTheTypes(paramName, instance.GetType(), requiredTypes);
         }
@@ -540,7 +540,7 @@ namespace Catel
         [DebuggerNonUserCode, DebuggerStepThrough]
         public static void IsOfOneOfTheTypes(string paramName, Type type, Type[] requiredTypes)
         {
-            ArgumentNullException.ThrowIfNull(type);
+            ArgumentNullExceptionCheck.ThrowIfNull(type);
             Argument.IsNotNullOrEmptyArray("requiredTypes", requiredTypes);
 
             if (type.IsCOMObjectEx())
@@ -580,8 +580,8 @@ namespace Catel
         [DebuggerNonUserCode, DebuggerStepThrough]
         public static void IsNotOfType(string paramName, object instance, Type notRequiredType)
         {
-            ArgumentNullException.ThrowIfNull(instance);
-            ArgumentNullException.ThrowIfNull(notRequiredType);
+            ArgumentNullExceptionCheck.ThrowIfNull(instance);
+            ArgumentNullExceptionCheck.ThrowIfNull(notRequiredType);
 
             IsNotOfType(paramName, instance.GetType(), notRequiredType);
         }
@@ -599,8 +599,8 @@ namespace Catel
         [DebuggerNonUserCode, DebuggerStepThrough]
         public static void IsNotOfType(string paramName, Type type, Type notRequiredType)
         {
-            ArgumentNullException.ThrowIfNull(type);
-            ArgumentNullException.ThrowIfNull(notRequiredType);
+            ArgumentNullExceptionCheck.ThrowIfNull(type);
+            ArgumentNullExceptionCheck.ThrowIfNull(notRequiredType);
 
             if (type.IsCOMObjectEx())
             {
@@ -629,7 +629,7 @@ namespace Catel
         [DebuggerNonUserCode, DebuggerStepThrough]
         public static void IsNotOfOneOfTheTypes(string paramName, object instance, Type[] notRequiredTypes)
         {
-            ArgumentNullException.ThrowIfNull(instance);
+            ArgumentNullExceptionCheck.ThrowIfNull(instance);
 
             IsNotOfOneOfTheTypes(paramName, instance.GetType(), notRequiredTypes);
         }
@@ -647,7 +647,7 @@ namespace Catel
         [DebuggerNonUserCode, DebuggerStepThrough]
         public static void IsNotOfOneOfTheTypes(string paramName, Type type, Type[] notRequiredTypes)
         {
-            ArgumentNullException.ThrowIfNull(type);
+            ArgumentNullExceptionCheck.ThrowIfNull(type);
             Argument.IsNotNullOrEmptyArray("notRequiredTypes", notRequiredTypes);
 
             if (type.IsCOMObjectEx())
@@ -728,7 +728,7 @@ namespace Catel
         [DebuggerNonUserCode, DebuggerStepThrough]
         public static void IsValid<T>(string paramName, T paramValue, Func<bool> validation)
         {
-            ArgumentNullException.ThrowIfNull(validation);
+            ArgumentNullExceptionCheck.ThrowIfNull(validation);
 
             IsValid(paramName, paramValue, validation.Invoke());
         }
@@ -746,7 +746,7 @@ namespace Catel
         [DebuggerNonUserCode, DebuggerStepThrough]
         public static void IsValid<T>(string paramName, T paramValue, Func<T, bool> validation)
         {
-            ArgumentNullException.ThrowIfNull(validation);
+            ArgumentNullExceptionCheck.ThrowIfNull(validation);
 
             IsValid(paramName, paramValue, validation.Invoke(paramValue));
         }
@@ -764,7 +764,7 @@ namespace Catel
         [DebuggerNonUserCode, DebuggerStepThrough]
         public static void IsValid<T>(string paramName, T paramValue, IValueValidator<T> validator)
         {
-            ArgumentNullException.ThrowIfNull(validator);
+            ArgumentNullExceptionCheck.ThrowIfNull(validator);
 
             IsValid(paramName, paramValue, validator.IsValid(paramValue));
         }

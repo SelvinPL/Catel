@@ -21,7 +21,7 @@
         /// <param name="configuration">The configuration.</param>
         public CatelJsonConverter(IJsonSerializer jsonSerializer, ISerializationConfiguration? configuration)
         {
-            ArgumentNullException.ThrowIfNull(jsonSerializer);
+            ArgumentNullExceptionCheck.ThrowIfNull(jsonSerializer);
 
             _jsonSerializer = jsonSerializer;
             _configuration = configuration;
@@ -35,7 +35,7 @@
         /// <param name="serializer">The serializer.</param>
         public override void WriteJson(JsonWriter writer, object? value, Newtonsoft.Json.JsonSerializer serializer)
         {
-            ArgumentNullException.ThrowIfNull(writer);
+            ArgumentNullExceptionCheck.ThrowIfNull(writer);
 
             var serialize = true;
 
@@ -81,8 +81,8 @@
         /// <returns>System.Object.</returns>
         public override object? ReadJson(JsonReader reader, Type objectType, object? existingValue, Newtonsoft.Json.JsonSerializer serializer)
         {
-            ArgumentNullException.ThrowIfNull(reader);
-            ArgumentNullException.ThrowIfNull(objectType);
+            ArgumentNullExceptionCheck.ThrowIfNull(reader);
+            ArgumentNullExceptionCheck.ThrowIfNull(objectType);
 
             var obj = _jsonSerializer.Deserialize(objectType, reader, _configuration);
             return obj;
@@ -95,7 +95,7 @@
         /// <returns><c>true</c> if this instance can convert the specified object type; otherwise, <c>false</c>.</returns>
         public override bool CanConvert(Type objectType)
         {
-            ArgumentNullException.ThrowIfNull(objectType);
+            ArgumentNullExceptionCheck.ThrowIfNull(objectType);
 
             var canConvert = objectType.IsModelBase();
             return canConvert;

@@ -27,7 +27,7 @@
         /// <returns>The index of the item in the is if it's present; otherwise <value>-1</value></returns>
         public static int IndexOf<T>(this IList<T> list, T item, int index)
         {
-            ArgumentNullException.ThrowIfNull(list);
+            ArgumentNullExceptionCheck.ThrowIfNull(list);
 
             var asList = list as List<T>;
             if (asList is not null)
@@ -68,7 +68,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="list"/> is <c>null</c>.</exception>
         public static bool CanMoveItemUp(this IList list, object item)
         {
-            ArgumentNullException.ThrowIfNull(list);
+            ArgumentNullExceptionCheck.ThrowIfNull(list);
 
             if (item is null)
             {
@@ -98,8 +98,8 @@
         /// <exception cref="ArgumentNullException">The <paramref name="item"/> is <c>null</c>.</exception>
         public static bool MoveItemUp(this IList list, object item)
         {
-            ArgumentNullException.ThrowIfNull(list);
-            ArgumentNullException.ThrowIfNull(item);
+            ArgumentNullExceptionCheck.ThrowIfNull(list);
+            ArgumentNullExceptionCheck.ThrowIfNull(item);
 
             var currentIndex = list.IndexOf(item);
             if (currentIndex == -1)
@@ -120,7 +120,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="list"/> is <c>null</c>.</exception>
         public static bool CanMoveItemDown(this IList list, object item)
         {
-            ArgumentNullException.ThrowIfNull(list);
+            ArgumentNullExceptionCheck.ThrowIfNull(list);
 
             if (item is null)
             {
@@ -156,7 +156,7 @@
         /// <exception cref="ArgumentOutOfRangeException">The <paramref name="index"/> is smaller than 0 or larger than the list count.</exception>
         public static bool MoveItemUpByIndex(this IList list, int index)
         {
-            ArgumentNullException.ThrowIfNull(list);
+            ArgumentNullExceptionCheck.ThrowIfNull(list);
             Argument.IsNotOutOfRange("index", index, 0, list.Count - 1);
 
             if (list.Count < index - 1)
@@ -188,8 +188,8 @@
         /// <exception cref="ArgumentNullException">The <paramref name="item"/> is <c>null</c>.</exception>
         public static bool MoveItemDown(this IList list, object item)
         {
-            ArgumentNullException.ThrowIfNull(list);
-            ArgumentNullException.ThrowIfNull(item);
+            ArgumentNullExceptionCheck.ThrowIfNull(list);
+            ArgumentNullExceptionCheck.ThrowIfNull(item);
 
             var currentIndex = list.IndexOf(item);
             if (currentIndex == -1)
@@ -211,7 +211,7 @@
         /// <exception cref="ArgumentOutOfRangeException">The <paramref name="index"/> is smaller than 0 or larger than the list count.</exception>
         public static bool MoveItemDownByIndex(this IList list, int index)
         {
-            ArgumentNullException.ThrowIfNull(list);
+            ArgumentNullExceptionCheck.ThrowIfNull(list);
             Argument.IsNotOutOfRange("index", index, 0, list.Count - 1);
 
             if (list.Count < index - 1)
@@ -243,8 +243,8 @@
         /// <exception cref="ArgumentNullException">The <paramref name="range"/> is <c>null</c>.</exception>
         public static void AddRange<T>(this ICollection<T> collection, IEnumerable<T> range)
         {
-            ArgumentNullException.ThrowIfNull(collection);
-            ArgumentNullException.ThrowIfNull(range);
+            ArgumentNullExceptionCheck.ThrowIfNull(collection);
+            ArgumentNullExceptionCheck.ThrowIfNull(range);
 
             foreach (T curItem in range)
             {
@@ -263,7 +263,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="range"/> is <c>null</c>.</exception>
         public static void ReplaceRange<T>(this ICollection<T> collection, IEnumerable<T> range)
         {
-            ArgumentNullException.ThrowIfNull(collection);
+            ArgumentNullExceptionCheck.ThrowIfNull(collection);
 
             collection.Clear();
 
@@ -279,7 +279,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="list"/> is <c>null</c>.</exception>
         public static void RemoveFirst(this IList list)
         {
-            ArgumentNullException.ThrowIfNull(list);
+            ArgumentNullExceptionCheck.ThrowIfNull(list);
 
             if (list.Count == 0)
             {
@@ -298,7 +298,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="list"/> is <c>null</c>.</exception>
         public static void RemoveLast(this IList list)
         {
-            ArgumentNullException.ThrowIfNull(list);
+            ArgumentNullExceptionCheck.ThrowIfNull(list);
 
             if (list.Count == 0)
             {
@@ -336,7 +336,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="collection"/> is <c>null</c>.</exception>
         public static ReadOnlyCollection<T> AsReadOnly<T>(this IList<T> collection)
         {
-            ArgumentNullException.ThrowIfNull(collection);
+            ArgumentNullExceptionCheck.ThrowIfNull(collection);
 
             return new ReadOnlyCollection<T>(collection);
         }
@@ -349,7 +349,7 @@
         /// <returns>Array.</returns>
         public static Array ToArray(this IEnumerable collection, Type elementType)
         {
-            ArgumentNullException.ThrowIfNull(collection);
+            ArgumentNullExceptionCheck.ThrowIfNull(collection);
 
             var internalList = new List<object>(collection.Cast<object>());
             var array = Array.CreateInstance(elementType, internalList.Count);
@@ -374,8 +374,8 @@
         /// <returns>IEnumerable&lt;T&gt;.</returns>
         public static IEnumerable<T> SynchronizeCollection<T>(this IList<T> existingSet, IEnumerable<T> newSet, bool updateExistingSet = true)
         {
-            ArgumentNullException.ThrowIfNull(existingSet);
-            ArgumentNullException.ThrowIfNull(newSet);
+            ArgumentNullExceptionCheck.ThrowIfNull(existingSet);
+            ArgumentNullExceptionCheck.ThrowIfNull(newSet);
 
             return SynchronizeCollection((ICollection<T>)existingSet, newSet, updateExistingSet);
         }
@@ -390,8 +390,8 @@
         /// <returns>IEnumerable&lt;T&gt;.</returns>
         public static IEnumerable<T> SynchronizeCollection<T>(this ICollection<T> existingSet, IEnumerable<T> newSet, bool updateExistingSet = true)
         {
-            ArgumentNullException.ThrowIfNull(existingSet);
-            ArgumentNullException.ThrowIfNull(newSet);
+            ArgumentNullExceptionCheck.ThrowIfNull(existingSet);
+            ArgumentNullExceptionCheck.ThrowIfNull(newSet);
 
             var finalSet = updateExistingSet ? existingSet : new List<T>(existingSet);
             var itemsToRemove = new List<T>(existingSet);
@@ -430,7 +430,7 @@
         /// <param name="comparer">The comparer.</param>
         public static void Sort<T>(this IList<T> existingSet, Func<T, T, int>? comparer = null)
         {
-            ArgumentNullException.ThrowIfNull(existingSet);
+            ArgumentNullExceptionCheck.ThrowIfNull(existingSet);
 
             for (var i = existingSet.Count - 1; i >= 0; i--)
             {

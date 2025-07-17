@@ -20,7 +20,7 @@
         /// <param name="viewType">The view type.</param>
         public static void AutoDetectViewPropertiesToSubscribe(this Type viewType)
         {
-            ArgumentNullException.ThrowIfNull(viewType);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewType);
 
             lock (_autoDetectedViewtypes)
             {
@@ -56,7 +56,7 @@
         /// <returns>The parent <see cref="FrameworkElement"/> or <c>null</c> if there is no parent.</returns>
         public static FrameworkElement? GetParent(this FrameworkElement element)
         {
-            ArgumentNullException.ThrowIfNull(element);
+            ArgumentNullExceptionCheck.ThrowIfNull(element);
 
             return GetPossibleParents(element).FirstOrDefault();
         }
@@ -68,7 +68,7 @@
         /// <returns>The possible parents <see cref="FrameworkElement"/> or <c>null</c> if there is no parent.</returns>
         public static FrameworkElement[] GetPossibleParents(this FrameworkElement element)
         {
-            ArgumentNullException.ThrowIfNull(element);
+            ArgumentNullExceptionCheck.ThrowIfNull(element);
 
             var parents = new List<FrameworkElement>();
 
@@ -119,8 +119,8 @@
         /// </returns>
         public static DependencyObject? FindParentByPredicate(this FrameworkElement view, Predicate<object> predicate, int maxDepth)
         {
-            ArgumentNullException.ThrowIfNull(view);
-            ArgumentNullException.ThrowIfNull(predicate);
+            ArgumentNullExceptionCheck.ThrowIfNull(view);
+            ArgumentNullExceptionCheck.ThrowIfNull(predicate);
 
             object? foundParent = null;
 

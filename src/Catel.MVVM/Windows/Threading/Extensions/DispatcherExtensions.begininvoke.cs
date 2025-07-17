@@ -47,7 +47,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="method" /> is <c>null</c>.</exception>
         public static DispatcherOperation BeginInvoke(this Dispatcher dispatcher, Delegate method, params object?[] args)
         {
-            ArgumentNullException.ThrowIfNull(method);
+            ArgumentNullExceptionCheck.ThrowIfNull(method);
 
             return BeginInvoke(dispatcher, () => method.DynamicInvoke(args), false);
         }
@@ -63,7 +63,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="method" /> is <c>null</c>.</exception>
         public static DispatcherOperation BeginInvoke(this Dispatcher dispatcher, Delegate method, DispatcherPriority priority, params object?[] args)
         {
-            ArgumentNullException.ThrowIfNull(method);
+            ArgumentNullExceptionCheck.ThrowIfNull(method);
 
             return BeginInvoke(dispatcher, () => method.DynamicInvoke(args), priority, false);
         }
@@ -113,8 +113,8 @@
         /// <exception cref="ArgumentNullException">The <paramref name="method" /> is <c>null</c>.</exception>
         public static DispatcherOperation BeginInvokeIfRequired(this Dispatcher dispatcher, Delegate method, params object[] args)
         {
-            ArgumentNullException.ThrowIfNull(dispatcher);
-            ArgumentNullException.ThrowIfNull(method);
+            ArgumentNullExceptionCheck.ThrowIfNull(dispatcher);
+            ArgumentNullExceptionCheck.ThrowIfNull(method);
 
             return BeginInvoke(dispatcher, () => method.DynamicInvoke(args), true);
         }
@@ -132,8 +132,8 @@
         /// <exception cref="ArgumentNullException">The <paramref name="method" /> is <c>null</c>.</exception>
         public static DispatcherOperation BeginInvokeIfRequired(this Dispatcher dispatcher, Delegate method, DispatcherPriority priority, params object[] args)
         {
-            ArgumentNullException.ThrowIfNull(dispatcher);
-            ArgumentNullException.ThrowIfNull(method);
+            ArgumentNullExceptionCheck.ThrowIfNull(dispatcher);
+            ArgumentNullExceptionCheck.ThrowIfNull(method);
 
             return BeginInvoke(dispatcher, () => method.DynamicInvoke(args), priority, true);
         }
@@ -148,8 +148,8 @@
         /// <returns>The DispatcherOperation or <c>null</c> if the action was not dispatched but executed directly.</returns>
         public static DispatcherOperation BeginInvoke(this Dispatcher dispatcher, Action action, bool onlyBeginInvokeWhenNoAccess)
         {
-            ArgumentNullException.ThrowIfNull(dispatcher);
-            ArgumentNullException.ThrowIfNull(action);
+            ArgumentNullExceptionCheck.ThrowIfNull(dispatcher);
+            ArgumentNullExceptionCheck.ThrowIfNull(action);
 
             if (!onlyBeginInvokeWhenNoAccess || !dispatcher.CheckAccess())
             {
@@ -171,8 +171,8 @@
         /// <returns>The DispatcherOperation or <c>null</c> if the action was not dispatched but executed directly.</returns>
         public static DispatcherOperation BeginInvoke(this Dispatcher dispatcher, Action action, DispatcherPriority priority, bool onlyBeginInvokeWhenNoAccess)
         {
-            ArgumentNullException.ThrowIfNull(dispatcher);
-            ArgumentNullException.ThrowIfNull(action);
+            ArgumentNullExceptionCheck.ThrowIfNull(dispatcher);
+            ArgumentNullExceptionCheck.ThrowIfNull(action);
 
             if (!onlyBeginInvokeWhenNoAccess || !dispatcher.CheckAccess())
             {

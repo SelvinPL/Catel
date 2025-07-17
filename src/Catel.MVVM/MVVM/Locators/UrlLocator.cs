@@ -29,7 +29,7 @@
         /// <exception cref="ArgumentException">The <paramref name="url"/> is <c>null</c> or whitespace.</exception>
         public void Register(Type viewModelType, string url)
         {
-            ArgumentNullException.ThrowIfNull(viewModelType);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewModelType);
             Argument.IsNotNullOrWhitespace("url", url);
 
             var typeName = TypeHelper.GetTypeNameWithAssembly(viewModelType.GetSafeFullName(true));
@@ -51,7 +51,7 @@
         /// </remarks>
         public virtual string? ResolveUrl(Type viewModelType, bool ensurePageExists = true)
         {
-            ArgumentNullException.ThrowIfNull(viewModelType);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewModelType);
 
             var assembly = TypeHelper.GetAssemblyName(viewModelType.GetSafeFullName(true));
             if (assembly is null)

@@ -8,7 +8,7 @@
         public static TViewModel? GetViewModel<TViewModel>(this UIVisualizerResult result)
             where TViewModel : class, IViewModel
         {
-            ArgumentNullException.ThrowIfNull(result);
+            ArgumentNullExceptionCheck.ThrowIfNull(result);
 
             return result.Context.Data as TViewModel;
         }

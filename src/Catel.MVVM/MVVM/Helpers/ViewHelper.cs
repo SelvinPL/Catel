@@ -49,7 +49,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="viewType" /> is <c>null</c>.</exception>
         public static FrameworkElement? ConstructViewWithViewModel(Type viewType, object? dataContext)
         {
-            ArgumentNullException.ThrowIfNull(viewType);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewType);
 
             Log.Debug("Constructing view for view type '{0}'", viewType.Name);
 

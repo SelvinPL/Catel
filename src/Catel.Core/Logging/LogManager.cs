@@ -484,7 +484,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="type"/> is <c>null</c>.</exception>
         public static ILog GetLogger(Type type)
         {
-            ArgumentNullException.ThrowIfNull(type);
+            ArgumentNullExceptionCheck.ThrowIfNull(type);
 
             return GetLogger(type.GetSafeFullName(), type);
         }
@@ -511,7 +511,7 @@
         public static ILog GetLogger(string name, Type type)
         {
             Argument.IsNotNullOrWhitespace("name", name);
-            ArgumentNullException.ThrowIfNull(type);
+            ArgumentNullExceptionCheck.ThrowIfNull(type);
 
             lock (_loggers)
             {
@@ -537,7 +537,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="type"/> is <c>null</c>.</exception>
         internal static ICatelLog GetCatelLogger(Type type, bool alwaysLog = false)
         {
-            ArgumentNullException.ThrowIfNull(type);
+            ArgumentNullExceptionCheck.ThrowIfNull(type);
 
             var name = type.GetSafeFullName();
 
@@ -627,7 +627,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="listener"/> is <c>null</c>.</exception>
         public static void AddListener(ILogListener listener)
         {
-            ArgumentNullException.ThrowIfNull(listener);
+            ArgumentNullExceptionCheck.ThrowIfNull(listener);
 
             lock (_logListeners)
             {
@@ -644,7 +644,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="listener"/> is <c>null</c>.</exception>
         public static void RemoveListener(ILogListener listener)
         {
-            ArgumentNullException.ThrowIfNull(listener);
+            ArgumentNullExceptionCheck.ThrowIfNull(listener);
 
             lock (_logListeners)
             {
@@ -664,7 +664,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="listener"/> is <c>null</c>.</exception>
         public static bool IsListenerRegistered(ILogListener listener)
         {
-            ArgumentNullException.ThrowIfNull(listener);
+            ArgumentNullExceptionCheck.ThrowIfNull(listener);
 
             lock (_logListeners)
             {

@@ -86,7 +86,7 @@
 
         public FastObservableDictionary(IEnumerable<KeyValuePair<TKey, TValue>> originalDict)
         {
-            ArgumentNullException.ThrowIfNull(originalDict);
+            ArgumentNullExceptionCheck.ThrowIfNull(originalDict);
 
             if (originalDict is ICollection<KeyValuePair<TKey, TValue>> collection)
             {
@@ -125,7 +125,7 @@
 
         public FastObservableDictionary(IDictionary<TKey, TValue> dictionary, IEqualityComparer<TKey>? comparer)
         {
-            ArgumentNullException.ThrowIfNull(dictionary);
+            ArgumentNullExceptionCheck.ThrowIfNull(dictionary);
 
             _dict = new Dictionary<TKey, TValue>(dictionary.Count, comparer);
             _dictIndexMapping = new Dictionary<TKey, int>(dictionary.Count, comparer);
@@ -136,9 +136,9 @@
 
         private FastObservableDictionary(Dictionary<TKey, TValue> dict, Dictionary<TKey, int> dictIndexMapping, List<TKey> list)
         {
-            ArgumentNullException.ThrowIfNull(dict);
-            ArgumentNullException.ThrowIfNull(dictIndexMapping);
-            ArgumentNullException.ThrowIfNull(list);
+            ArgumentNullExceptionCheck.ThrowIfNull(dict);
+            ArgumentNullExceptionCheck.ThrowIfNull(dictIndexMapping);
+            ArgumentNullExceptionCheck.ThrowIfNull(list);
 
             _dict = dict;
             _list = list;

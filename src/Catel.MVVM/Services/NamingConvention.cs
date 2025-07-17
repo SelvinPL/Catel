@@ -155,7 +155,7 @@
         /// <exception cref="ArgumentException">If <paramref name="conventionToUse"/> is <c>null</c> or whitespace.</exception>
         public static string ResolveNamingConvention(Dictionary<string, string> constantsWithValues, string conventionToUse)
         {
-            ArgumentNullException.ThrowIfNull(constantsWithValues);
+            ArgumentNullExceptionCheck.ThrowIfNull(constantsWithValues);
             Argument.IsNotNullOrWhitespace("conventionToUse", conventionToUse);
 
             return constantsWithValues.Aggregate(conventionToUse, (current, constantWithValue) => current.Replace(constantWithValue.Key, constantWithValue.Value));
@@ -175,7 +175,7 @@
         /// <exception cref="ArgumentException">If <paramref name="conventionToUse"/> is <c>null</c> or whitespace.</exception>
         public static string ResolveNamingConvention(Dictionary<string, string> constantsWithValues, string conventionToUse, string value)
         {
-            ArgumentNullException.ThrowIfNull(constantsWithValues);
+            ArgumentNullExceptionCheck.ThrowIfNull(constantsWithValues);
             Argument.IsNotNullOrWhitespace("conventionToUse", conventionToUse);
             Argument.IsNotNullOrWhitespace("value", value);
 
@@ -298,7 +298,7 @@
         /// <exception cref="ArgumentException">The <paramref name="postfixesToRemove"/> is <c>null</c> or an empty array.</exception>
         private static string RemoveAllPostfixes(string value, string[] postfixesToRemove)
         {
-            ArgumentNullException.ThrowIfNull(value);
+            ArgumentNullExceptionCheck.ThrowIfNull(value);
             Argument.IsNotNullOrEmptyArray("postfixesToRemove", postfixesToRemove);
 
             foreach (var postfix in postfixesToRemove)

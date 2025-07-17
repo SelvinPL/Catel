@@ -14,7 +14,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="behavior"/> is <c>null</c>.</exception>
         public BehaviorEventArgs(IBehavior behavior)
         {
-            ArgumentNullException.ThrowIfNull(behavior);
+            ArgumentNullExceptionCheck.ThrowIfNull(behavior);
 
             Behavior = behavior;
         }

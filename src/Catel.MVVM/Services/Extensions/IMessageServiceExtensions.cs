@@ -13,8 +13,8 @@
         /// <exception cref="ArgumentNullException">The <paramref name="exception"/> is <c>null</c>.</exception>
         public static Task<MessageResult> ShowErrorAsync(this IMessageService messageService, Exception exception)
         {
-            ArgumentNullException.ThrowIfNull(messageService);
-            ArgumentNullException.ThrowIfNull(exception);
+            ArgumentNullExceptionCheck.ThrowIfNull(messageService);
+            ArgumentNullExceptionCheck.ThrowIfNull(exception);
 
             return messageService.ShowErrorAsync(exception.Message, string.Empty);
         }

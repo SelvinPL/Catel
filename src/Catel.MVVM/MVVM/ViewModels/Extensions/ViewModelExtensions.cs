@@ -16,7 +16,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="viewModel"/> is <c>null</c>.</exception>
         public static IViewModelCommandManager GetViewModelCommandManager(this ViewModelBase viewModel)
         {
-            ArgumentNullException.ThrowIfNull(viewModel);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewModel);
 
             return viewModel.ViewModelCommandManager;
         }
@@ -31,7 +31,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="viewModel"/> is <c>null</c>.</exception>
         public static bool IsValidationSummaryOutdated(this ViewModelBase viewModel, long lastUpdated, bool includeChildViewModelValidations)
         {
-            ArgumentNullException.ThrowIfNull(viewModel);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewModel);
 
             if (((IValidatable)viewModel).ValidationContext.LastModifiedTicks > lastUpdated)
             {
@@ -67,7 +67,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="viewModel"/> is <c>null</c>.</exception>
         public static IValidationSummary GetValidationSummary(this ViewModelBase viewModel, bool includeChildViewModelValidations)
         {
-            ArgumentNullException.ThrowIfNull(viewModel);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewModel);
 
             var validationContext = GetNestedValidationContext(viewModel, includeChildViewModelValidations);
 
@@ -86,7 +86,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="viewModel"/> is <c>null</c>.</exception>
         public static IValidationSummary GetValidationSummary(this ViewModelBase viewModel, bool includeChildViewModelValidations, object tag)
         {
-            ArgumentNullException.ThrowIfNull(viewModel);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewModel);
 
             var validationContext = GetNestedValidationContext(viewModel, includeChildViewModelValidations);
 

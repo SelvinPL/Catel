@@ -18,7 +18,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="element"/> is <c>null</c>.</exception>
         public static UIElement? GetFocusedControl(this UIElement element)
         {
-            ArgumentNullException.ThrowIfNull(element);
+            ArgumentNullExceptionCheck.ThrowIfNull(element);
 
             return element.FindVisualDescendant(obj =>
             {

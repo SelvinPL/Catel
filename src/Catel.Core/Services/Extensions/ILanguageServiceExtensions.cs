@@ -16,7 +16,7 @@
         /// <exception cref="ArgumentException">The <paramref name="resourceName" /> is <c>null</c>.</exception>
         public static string GetRequiredString(this ILanguageService languageService, string resourceName)
         {
-            ArgumentNullException.ThrowIfNull(languageService);
+            ArgumentNullExceptionCheck.ThrowIfNull(languageService);
 
             var result = languageService.GetString(resourceName);
             if (result is null)
@@ -41,7 +41,7 @@
         /// <exception cref="ArgumentException">The <paramref name="resourceName" /> is <c>null</c>.</exception>
         public static string GetRequiredStringAndFormat(this ILanguageService languageService, string resourceName, params object?[] args)
         {
-            ArgumentNullException.ThrowIfNull(languageService);
+            ArgumentNullExceptionCheck.ThrowIfNull(languageService);
 
             var result = languageService.GetRequiredString(resourceName);
             return Format(result, args);
@@ -58,7 +58,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="cultureInfo" /> is <c>null</c>.</exception>
         public static string GetRequiredString(this ILanguageService languageService, string resourceName, CultureInfo cultureInfo)
         {
-            ArgumentNullException.ThrowIfNull(languageService);
+            ArgumentNullExceptionCheck.ThrowIfNull(languageService);
 
             var result = languageService.GetString(resourceName, cultureInfo);
             if (result is null)
@@ -84,7 +84,7 @@
         /// <exception cref="ArgumentException">The <paramref name="resourceName" /> is <c>null</c>.</exception>
         public static string GetRequiredStringAndFormat(this ILanguageService languageService, string resourceName, CultureInfo cultureInfo, params object?[] args)
         {
-            ArgumentNullException.ThrowIfNull(languageService);
+            ArgumentNullExceptionCheck.ThrowIfNull(languageService);
 
             var result = languageService.GetRequiredString(resourceName, cultureInfo);
             return Format(result, args);
@@ -103,7 +103,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="cultureInfo" /> is <c>null</c>.</exception>
         public static string GetRequiredString(this ILanguageService languageService, ILanguageSource languageSource, string resourceName, CultureInfo cultureInfo)
         {
-            ArgumentNullException.ThrowIfNull(languageService);
+            ArgumentNullExceptionCheck.ThrowIfNull(languageService);
 
             var result = languageService.GetString(languageSource, resourceName, cultureInfo);
             if (result is null)
@@ -130,7 +130,7 @@
         /// <exception cref="ArgumentException">The <paramref name="resourceName" /> is <c>null</c>.</exception>
         public static string GetRequiredStringAndFormat(this ILanguageService languageService, ILanguageSource languageSource, string resourceName, CultureInfo cultureInfo, params object?[] args)
         {
-            ArgumentNullException.ThrowIfNull(languageService);
+            ArgumentNullExceptionCheck.ThrowIfNull(languageService);
 
             var result = languageService.GetRequiredString(languageSource, resourceName, cultureInfo);
             return Format(result, args);

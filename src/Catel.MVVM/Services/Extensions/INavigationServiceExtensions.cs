@@ -15,7 +15,7 @@
         /// and the value is the value of the parameter.</param>
         public static Task NavigateAsync<TViewModel>(INavigationService navigationService, Dictionary<string, object>? parameters = null)
         {
-            ArgumentNullException.ThrowIfNull(navigationService);
+            ArgumentNullExceptionCheck.ThrowIfNull(navigationService);
 
             return navigationService.NavigateAsync(typeof(TViewModel), parameters);
         }

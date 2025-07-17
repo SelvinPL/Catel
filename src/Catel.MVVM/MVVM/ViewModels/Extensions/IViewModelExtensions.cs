@@ -66,7 +66,7 @@
         /// <returns><c>true</c> if successful; otherwise <c>false</c>.</returns>
         public static async Task<bool> SaveAndCloseViewModelAsync(this IViewModel viewModel, int timeout)
         {
-            ArgumentNullException.ThrowIfNull(viewModel);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewModel);
 
             var viewModelBase = viewModel as ViewModelBase;
             if (viewModelBase is not null)
@@ -123,7 +123,7 @@
         /// <returns><c>true</c> if successful; otherwise <c>false</c>.</returns>
         public static async Task<bool> CancelAndCloseViewModelAsync(this IViewModel viewModel, int timeout)
         {
-            ArgumentNullException.ThrowIfNull(viewModel);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewModel);
 
             var viewModelBase = viewModel as ViewModelBase;
             if (viewModelBase is not null)

@@ -17,7 +17,7 @@
         /// <param name="element">The UI element.</param>
         public static void FixBlurriness(this FrameworkElement element)
         {
-            ArgumentNullException.ThrowIfNull(element);
+            ArgumentNullExceptionCheck.ThrowIfNull(element);
 
             element.SnapsToDevicePixels = true;
             element.UseLayoutRounding = true;
@@ -30,7 +30,7 @@
         /// <returns><c>true</c> if the specified element is visible; otherwise, <c>false</c>.</returns>
         public static bool IsVisible(this FrameworkElement element)
         {
-            ArgumentNullException.ThrowIfNull(element);
+            ArgumentNullExceptionCheck.ThrowIfNull(element);
 
             return element.IsVisible;
         }
@@ -41,7 +41,7 @@
         /// <returns><c>true</c> if the framework element is currently visible to the user; otherwise, <c>false</c>.</returns>
         public static bool IsVisibleToUser(this FrameworkElement element)
         {
-            ArgumentNullException.ThrowIfNull(element);
+            ArgumentNullExceptionCheck.ThrowIfNull(element);
 
             var container = GetRelevantParent<FrameworkElement>(element);
             if (container is not null)
@@ -64,8 +64,8 @@
         /// <returns><c>true</c> if if the specified element is currently visible to the user; otherwise, <c>false</c>.</returns>
         public static bool IsVisibleToUser(this FrameworkElement element, FrameworkElement container)
         {
-            ArgumentNullException.ThrowIfNull(element);
-            ArgumentNullException.ThrowIfNull(container);
+            ArgumentNullExceptionCheck.ThrowIfNull(element);
+            ArgumentNullExceptionCheck.ThrowIfNull(container);
 
             if (!container.IsVisible() || !element.IsVisible())
             {

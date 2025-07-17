@@ -14,8 +14,8 @@
         /// <param name="other">The other instance.</param>
         public static bool ConsolidateItemsByAppend(this NotifyRangedCollectionChangedEventArgs instance, NotifyRangedCollectionChangedEventArgs other)
         {
-            ArgumentNullException.ThrowIfNull(instance);
-            ArgumentNullException.ThrowIfNull(other);
+            ArgumentNullExceptionCheck.ThrowIfNull(instance);
+            ArgumentNullExceptionCheck.ThrowIfNull(other);
 
             // We can't deal non-information
             if (instance.Indices is null || instance.ChangedItems is null ||
@@ -50,8 +50,8 @@
         /// <returns><c>True</c> if consolidation was executed; otherwise <c>False</c></returns>
         public static bool ConsolidateItems(this NotifyRangedCollectionChangedEventArgs instance, NotifyRangedCollectionChangedEventArgs other)
         {
-            ArgumentNullException.ThrowIfNull(instance);
-            ArgumentNullException.ThrowIfNull(other);
+            ArgumentNullExceptionCheck.ThrowIfNull(instance);
+            ArgumentNullExceptionCheck.ThrowIfNull(other);
 
             // We can't deal non-information
             if (instance.Indices is null || instance.ChangedItems is null ||

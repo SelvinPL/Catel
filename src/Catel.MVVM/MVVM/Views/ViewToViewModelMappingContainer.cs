@@ -34,7 +34,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="viewModelContainerType" /> is <c>null</c>.</exception>
         public ViewToViewModelMappingContainer(Type viewModelContainerType)
         {
-            ArgumentNullException.ThrowIfNull(viewModelContainerType);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewModelContainerType);
 
             var properties = viewModelContainerType.GetPropertiesEx();
 

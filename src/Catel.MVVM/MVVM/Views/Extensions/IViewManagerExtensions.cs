@@ -16,7 +16,7 @@
         public static TView? GetFirstOrDefaultInstance<TView>(this IViewModelManager viewManager)
             where TView : IView
         {
-            ArgumentNullException.ThrowIfNull(viewManager);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewManager);
 
             var viewType = typeof(TView);
 

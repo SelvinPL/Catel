@@ -15,7 +15,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="viewModel"/> is <c>null</c>.</exception>
         public ViewModelClosedEventArgs(IViewModel viewModel, bool? result)
         {
-            ArgumentNullException.ThrowIfNull(viewModel);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewModel);
 
             ViewModel = viewModel;
             Result = result;

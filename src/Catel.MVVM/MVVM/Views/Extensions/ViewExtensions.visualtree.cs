@@ -11,7 +11,7 @@
         /// <param name="view">The view.</param>
         public static void EnsureVisualTree(this IView view)
         {
-            ArgumentNullException.ThrowIfNull(view);
+            ArgumentNullExceptionCheck.ThrowIfNull(view);
 
             // According to the documentation, no visual tree is garantueed in the Loaded event of the user control.
             // However, as a solution the documentation says you need to manually call ApplyTemplate, so let's do that.

@@ -18,7 +18,7 @@
         /// method will be used instead.</remarks>
         public static void Invoke(this Dispatcher dispatcher, Action action)
         {
-            ArgumentNullException.ThrowIfNull(action);
+            ArgumentNullExceptionCheck.ThrowIfNull(action);
 
             if (dispatcher is not null && !dispatcher.CheckAccess())
             {
@@ -41,7 +41,7 @@
         /// method will be used instead.</remarks>
         public static void Invoke(this Dispatcher dispatcher, Action action, DispatcherPriority priority)
         {
-            ArgumentNullException.ThrowIfNull(action);
+            ArgumentNullExceptionCheck.ThrowIfNull(action);
 
             if (dispatcher is not null && !dispatcher.CheckAccess())
             {
@@ -64,7 +64,7 @@
         /// method will be used instead.</remarks>
         public static void Invoke(this Dispatcher dispatcher, Delegate method, params object?[] args)
         {
-            ArgumentNullException.ThrowIfNull(method);
+            ArgumentNullExceptionCheck.ThrowIfNull(method);
 
             if (dispatcher is not null && !dispatcher.CheckAccess())
             {
@@ -88,7 +88,7 @@
         /// method will be used instead.</remarks>
         public static void Invoke(this Dispatcher dispatcher, Delegate method, DispatcherPriority priority, params object?[] args)
         {
-            ArgumentNullException.ThrowIfNull(method);
+            ArgumentNullExceptionCheck.ThrowIfNull(method);
 
             if (dispatcher is not null && !dispatcher.CheckAccess())
             {
@@ -142,7 +142,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="method" /> is <c>null</c>.</exception>
         public static void InvokeIfRequired(this Dispatcher dispatcher, Delegate method, params object[] args)
         {
-            ArgumentNullException.ThrowIfNull(method);
+            ArgumentNullExceptionCheck.ThrowIfNull(method);
 
             Invoke(dispatcher, () => method.DynamicInvoke(args), true);
         }
@@ -159,7 +159,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="method" /> is <c>null</c>.</exception>
         public static void InvokeIfRequired(this Dispatcher dispatcher, Delegate method, DispatcherPriority priority, params object[] args)
         {
-            ArgumentNullException.ThrowIfNull(method);
+            ArgumentNullExceptionCheck.ThrowIfNull(method);
 
             Invoke(dispatcher, () => method.DynamicInvoke(args), priority, true);
         }
@@ -173,7 +173,7 @@
         /// <c>Dispatcher.BeginInvoke</c> will be used.</param>
         public static void Invoke(this Dispatcher dispatcher, Action action, bool onlyBeginInvokeWhenNoAccess)
         {
-            ArgumentNullException.ThrowIfNull(action);
+            ArgumentNullExceptionCheck.ThrowIfNull(action);
 
             if (dispatcher is not null)
             {
@@ -197,7 +197,7 @@
         /// <c>Dispatcher.BeginInvoke</c> will be used.</param>
         public static void Invoke(this Dispatcher dispatcher, Action action, DispatcherPriority priority, bool onlyInvokeWhenNoAccess)
         {
-            ArgumentNullException.ThrowIfNull(action);
+            ArgumentNullExceptionCheck.ThrowIfNull(action);
 
             if (dispatcher is not null)
             {

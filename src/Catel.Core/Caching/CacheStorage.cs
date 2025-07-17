@@ -247,7 +247,7 @@
         /// <exception cref="ArgumentNullException">If <paramref name="code" /> is <c>null</c>.</exception>
         public TValue GetFromCacheOrFetch(TKey key, Func<TValue> code, bool @override = false, TimeSpan expiration = default)
         {
-            ArgumentNullException.ThrowIfNull(code);
+            ArgumentNullExceptionCheck.ThrowIfNull(code);
 
             return GetFromCacheOrFetch(key, code, CreateDefaultExpirationPolicy(expiration), @override);
         }
@@ -266,7 +266,7 @@
         /// <exception cref="ArgumentNullException">If <paramref name="code" /> is <c>null</c>.</exception>
         public Task<TValue> GetFromCacheOrFetchAsync(TKey key, Func<Task<TValue>> code, ExpirationPolicy? expirationPolicy, bool @override = false)
         {
-            ArgumentNullException.ThrowIfNull(code);
+            ArgumentNullExceptionCheck.ThrowIfNull(code);
 
             return ExecuteInLockAsync(key, async () =>
             {
@@ -347,7 +347,7 @@
         {
             if (!_storeNullValues)
             {
-                ArgumentNullException.ThrowIfNull(value);
+                ArgumentNullExceptionCheck.ThrowIfNull(value);
             }
 
             GetFromCacheOrFetch(key, () => @value, expirationPolicy, @override);

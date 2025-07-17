@@ -95,7 +95,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="collection"/> is <c>null</c>.</exception>
         public virtual void InsertItems(IEnumerable<T> collection, int index)
         {
-            ArgumentNullException.ThrowIfNull(collection);
+            ArgumentNullExceptionCheck.ThrowIfNull(collection);
 
             InsertItems(collection, index, SuspensionMode.None);
         }
@@ -111,7 +111,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="collection"/> is <c>null</c>.</exception>
         public virtual void InsertItems(IEnumerable<T> collection, int index, SuspensionMode mode)
         {
-            ArgumentNullException.ThrowIfNull(collection);
+            ArgumentNullExceptionCheck.ThrowIfNull(collection);
 
             using (SuspendChangeNotifications(mode))
             {
@@ -132,7 +132,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="collection"/> is <c>null</c>.</exception>
         public virtual void InsertItems(IEnumerable collection, int index)
         {
-            ArgumentNullException.ThrowIfNull(collection);
+            ArgumentNullExceptionCheck.ThrowIfNull(collection);
 
             InsertItems(collection, index, SuspensionMode.None);
         }
@@ -148,7 +148,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="collection"/> is <c>null</c>.</exception>
         public virtual void InsertItems(IEnumerable collection, int index, SuspensionMode mode)
         {
-            ArgumentNullException.ThrowIfNull(collection);
+            ArgumentNullExceptionCheck.ThrowIfNull(collection);
 
             var list = (IList)this;
 
@@ -185,7 +185,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="collection"/> is <c>null</c>.</exception>
         public void AddItems(IEnumerable<T> collection)
         {
-            ArgumentNullException.ThrowIfNull(collection);
+            ArgumentNullExceptionCheck.ThrowIfNull(collection);
 
             AddItems(collection, SuspensionMode.None);
         }
@@ -200,7 +200,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="collection"/> is <c>null</c>.</exception>
         public void AddItems(IEnumerable<T> collection, SuspensionMode mode)
         {
-            ArgumentNullException.ThrowIfNull(collection);
+            ArgumentNullExceptionCheck.ThrowIfNull(collection);
 
             using (SuspendChangeNotifications(mode))
             {
@@ -220,7 +220,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="collection"/> is <c>null</c>.</exception>
         public void AddItems(IEnumerable collection)
         {
-            ArgumentNullException.ThrowIfNull(collection);
+            ArgumentNullExceptionCheck.ThrowIfNull(collection);
 
             // Don't create overload, keep as is
             AddItems(collection, SuspensionMode.None);
@@ -236,7 +236,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="collection"/> is <c>null</c>.</exception>
         public void AddItems(IEnumerable collection, SuspensionMode mode)
         {
-            ArgumentNullException.ThrowIfNull(collection);
+            ArgumentNullExceptionCheck.ThrowIfNull(collection);
 
             var list = (IList)this;
 
@@ -258,7 +258,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="collection"/> is <c>null</c>.</exception>
         public void RemoveItems(IEnumerable<T> collection)
         {
-            ArgumentNullException.ThrowIfNull(collection);
+            ArgumentNullExceptionCheck.ThrowIfNull(collection);
 
             // Don't create overload, keep as is
             RemoveItems(collection, SuspensionMode.None);
@@ -274,7 +274,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="collection"/> is <c>null</c>.</exception>
         public void RemoveItems(IEnumerable<T> collection, SuspensionMode mode)
         {
-            ArgumentNullException.ThrowIfNull(collection);
+            ArgumentNullExceptionCheck.ThrowIfNull(collection);
 
             using (SuspendChangeNotifications(mode))
             {
@@ -294,7 +294,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="collection"/> is <c>null</c>.</exception>
         public void RemoveItems(IEnumerable collection)
         {
-            ArgumentNullException.ThrowIfNull(collection);
+            ArgumentNullExceptionCheck.ThrowIfNull(collection);
 
             // Don't create overload, keep as is
             RemoveItems(collection, SuspensionMode.None);
@@ -310,7 +310,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="collection"/> is <c>null</c>.</exception>
         public void RemoveItems(IEnumerable collection, SuspensionMode mode)
         {
-            ArgumentNullException.ThrowIfNull(collection);
+            ArgumentNullExceptionCheck.ThrowIfNull(collection);
 
             var list = (IList)this;
 

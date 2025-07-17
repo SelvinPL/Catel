@@ -50,7 +50,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="propertiesToImport"/> is <c>null</c>.</exception>
         public void Import(Dictionary<string, object?> propertiesToImport)
         {
-            ArgumentNullException.ThrowIfNull(propertiesToImport);
+            ArgumentNullExceptionCheck.ThrowIfNull(propertiesToImport);
 
             foreach (var property in propertiesToImport)
             {
@@ -141,7 +141,7 @@
         public void UpdatePropertyValue<TValue>(string propertyName, Func<TValue, TValue> update)
         {
             Argument.IsNotNullOrWhitespace("propertyName", propertyName);
-            ArgumentNullException.ThrowIfNull(update);
+            ArgumentNullExceptionCheck.ThrowIfNull(update);
 
             lock (_lockObject)
             {

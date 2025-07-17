@@ -52,7 +52,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="value"/> is <c>null</c> or whitespace.</exception>
         public ChangeNotificationWrapper(object value)
         {
-            ArgumentNullException.ThrowIfNull(value);
+            ArgumentNullExceptionCheck.ThrowIfNull(value);
 
             _weakReference = new WeakReference(value);
 

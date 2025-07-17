@@ -79,7 +79,7 @@
         protected CommandContainerBase(string commandName, ICommandManager commandManager)
         {
             Argument.IsNotNullOrWhitespace("commandName", commandName);
-            ArgumentNullException.ThrowIfNull(commandManager);
+            ArgumentNullExceptionCheck.ThrowIfNull(commandManager);
 
             CommandName = commandName;
             _commandManager = commandManager;

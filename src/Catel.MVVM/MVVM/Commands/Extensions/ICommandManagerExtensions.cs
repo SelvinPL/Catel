@@ -28,8 +28,8 @@
         /// <exception cref="ArgumentNullException">The <paramref name="inputGesture"/> is <c>null</c>.</exception>
         public static Dictionary<string, ICommand> FindCommandsByGesture(this ICommandManager commandManager, InputGesture inputGesture)
         {
-            ArgumentNullException.ThrowIfNull(commandManager);
-            ArgumentNullException.ThrowIfNull(inputGesture);
+            ArgumentNullExceptionCheck.ThrowIfNull(commandManager);
+            ArgumentNullExceptionCheck.ThrowIfNull(inputGesture);
 
             var commands = new Dictionary<string, ICommand>();
 
@@ -60,8 +60,8 @@
         /// <exception cref="ArgumentNullException">The <paramref name="commandNameFieldName"/> is <c>null</c>.</exception>
         public static void CreateCommandWithGesture(this ICommandManager commandManager, Type containerType, string commandNameFieldName)
         {
-            ArgumentNullException.ThrowIfNull(commandManager);
-            ArgumentNullException.ThrowIfNull(containerType);
+            ArgumentNullExceptionCheck.ThrowIfNull(commandManager);
+            ArgumentNullExceptionCheck.ThrowIfNull(containerType);
             Argument.IsNotNullOrWhitespace("commandNameFieldName", commandNameFieldName);
 
             Log.Debug($"Creating command '{commandNameFieldName}'");

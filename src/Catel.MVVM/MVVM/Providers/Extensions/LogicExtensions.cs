@@ -16,7 +16,7 @@
         public static void SetValue<TLogic>(this LogicBase logic, Action<TLogic> action)
             where TLogic : LogicBase
         {
-            ArgumentNullException.ThrowIfNull(action);
+            ArgumentNullExceptionCheck.ThrowIfNull(action);
 
             if (logic is null)
             {
@@ -48,7 +48,7 @@
         public static TValue GetValue<TLogic, TValue>(this LogicBase logic, Func<TLogic, TValue> function, TValue defaultValue)
             where TLogic : LogicBase
         {
-            ArgumentNullException.ThrowIfNull(function);
+            ArgumentNullExceptionCheck.ThrowIfNull(function);
 
             if (logic is null)
             {

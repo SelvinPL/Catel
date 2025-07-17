@@ -22,7 +22,7 @@
         public static TViewModel? CreateViewModel<TViewModel>(this IViewModelFactory viewModelFactory, object? dataContext, object? tag = null)
             where TViewModel : IViewModel
         {
-            ArgumentNullException.ThrowIfNull(viewModelFactory);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewModelFactory);
 
             var viewModelType = typeof(TViewModel);
             return (TViewModel?)viewModelFactory.CreateViewModel(viewModelType, dataContext, tag);
@@ -42,7 +42,7 @@
         /// <exception cref="ArgumentException">The <c>TViewModel</c> does not implement the <see cref="IViewModel" /> interface.</exception>
         public static IViewModel CreateRequiredViewModel(this IViewModelFactory viewModelFactory, Type viewModelType, object? dataContext, object? tag = null)
         {
-            ArgumentNullException.ThrowIfNull(viewModelFactory);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewModelFactory);
 
             var vm = viewModelFactory.CreateViewModel(viewModelType, dataContext, tag);
             if (vm is null)
@@ -68,7 +68,7 @@
         public static TViewModel CreateRequiredViewModel<TViewModel>(this IViewModelFactory viewModelFactory, object? dataContext, object? tag = null)
         where TViewModel : IViewModel
         {
-            ArgumentNullException.ThrowIfNull(viewModelFactory);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewModelFactory);
 
             var vm = viewModelFactory.CreateViewModel<TViewModel>(dataContext, tag);
             if (vm is null)

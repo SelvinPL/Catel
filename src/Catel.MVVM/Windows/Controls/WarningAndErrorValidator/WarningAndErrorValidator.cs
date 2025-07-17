@@ -219,7 +219,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="values"/> is <c>null</c>.</exception>
         private void AddObjectsToWatchList(IEnumerable values, IEnumerable? parentEnumerable)
         {
-            ArgumentNullException.ThrowIfNull(values);
+            ArgumentNullExceptionCheck.ThrowIfNull(values);
 
             foreach (var value in values)
             {

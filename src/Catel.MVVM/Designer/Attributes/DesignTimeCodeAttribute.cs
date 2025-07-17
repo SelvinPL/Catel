@@ -17,7 +17,7 @@
         /// <param name="typeToConstruct">The type to construct.</param>
         public DesignTimeCodeAttribute(Type typeToConstruct)
         {
-            ArgumentNullException.ThrowIfNull(typeToConstruct);
+            ArgumentNullExceptionCheck.ThrowIfNull(typeToConstruct);
 
             if (InitializedTypes.ContainsKey(typeToConstruct))
             {

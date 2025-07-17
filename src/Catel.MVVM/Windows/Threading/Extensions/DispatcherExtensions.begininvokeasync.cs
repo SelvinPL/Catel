@@ -26,8 +26,8 @@
         /// </remarks>
         public static async Task BeginInvokeAsync(this Dispatcher dispatcher, Func<Task> func)
         {
-            ArgumentNullException.ThrowIfNull(dispatcher);
-            ArgumentNullException.ThrowIfNull(func);
+            ArgumentNullExceptionCheck.ThrowIfNull(dispatcher);
+            ArgumentNullExceptionCheck.ThrowIfNull(func);
 
             var tcs = new TaskCompletionSource<object?>();
 

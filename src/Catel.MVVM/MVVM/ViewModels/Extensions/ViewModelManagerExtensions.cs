@@ -18,7 +18,7 @@
         public static TViewModel? GetFirstOrDefaultInstance<TViewModel>(this IViewModelManager viewModelManager)
             where TViewModel : IViewModel
         {
-            ArgumentNullException.ThrowIfNull(viewModelManager);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewModelManager);
 
             return (TViewModel?)viewModelManager.GetFirstOrDefaultInstance(typeof(TViewModel));
         }
@@ -33,8 +33,8 @@
         /// <exception cref="ArgumentNullException">The <paramref name="viewModelManager" /> is <c>null</c>.</exception>
         public static async Task SaveAndCloseViewModelsAsync(this IViewModelManager viewModelManager, Func<IViewModel, bool> predicate)
         {
-            ArgumentNullException.ThrowIfNull(viewModelManager);
-            ArgumentNullException.ThrowIfNull(predicate);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewModelManager);
+            ArgumentNullExceptionCheck.ThrowIfNull(predicate);
 
             var activeViewModels = viewModelManager.ActiveViewModels;
 
@@ -57,8 +57,8 @@
         /// <exception cref="ArgumentNullException">The <paramref name="viewModelManager" /> is <c>null</c>.</exception>
         public static async Task CancelAndCloseViewModelsAsync(this IViewModelManager viewModelManager, Func<IViewModel, bool> predicate)
         {
-            ArgumentNullException.ThrowIfNull(viewModelManager);
-            ArgumentNullException.ThrowIfNull(predicate);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewModelManager);
+            ArgumentNullExceptionCheck.ThrowIfNull(predicate);
 
             var activeViewModels = viewModelManager.ActiveViewModels;
 

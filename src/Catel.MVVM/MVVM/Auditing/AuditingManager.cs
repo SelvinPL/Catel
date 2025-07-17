@@ -69,7 +69,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="auditor"/> is <c>null</c>.</exception>
         public static void RegisterAuditor(IAuditor auditor)
         {
-            ArgumentNullException.ThrowIfNull(auditor);
+            ArgumentNullExceptionCheck.ThrowIfNull(auditor);
 
             lock (_instance._auditors)
             {
@@ -90,7 +90,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="auditor"/> is <c>null</c>.</exception>
         public static void UnregisterAuditor(IAuditor auditor)
         {
-            ArgumentNullException.ThrowIfNull(auditor);
+            ArgumentNullExceptionCheck.ThrowIfNull(auditor);
 
             lock (_instance._auditors)
             {

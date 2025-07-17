@@ -37,7 +37,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="viewModelType" /> is <c>null</c>.</exception>
         public static bool IsRegistered(this IUIVisualizerService uiVisualizerService, Type viewModelType)
         {
-            ArgumentNullException.ThrowIfNull(viewModelType);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewModelType);
 
             return uiVisualizerService.IsRegistered(viewModelType.GetSafeFullName());
         }
@@ -70,7 +70,7 @@
         /// <exception cref="ArgumentException">The <paramref name="viewModelType" /> does not implement <see cref="IViewModel" />.</exception>
         public static void Register(this IUIVisualizerService uiVisualizerService, Type viewModelType, Type windowType, bool throwExceptionIfExists = true)
         {
-            ArgumentNullException.ThrowIfNull(viewModelType);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewModelType);
             Argument.ImplementsInterface<IViewModel>(nameof(viewModelType), viewModelType);
 
             uiVisualizerService.Register(viewModelType.GetSafeFullName(), windowType, throwExceptionIfExists);
@@ -95,7 +95,7 @@
         /// <returns><c>true</c> if the view model is unregistered; otherwise <c>false</c>.</returns>
         public static bool Unregister(this IUIVisualizerService uiVisualizerService, Type viewModelType)
         {
-            ArgumentNullException.ThrowIfNull(viewModelType);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewModelType);
 
             return uiVisualizerService.Unregister(viewModelType.GetSafeFullName());
         }
@@ -112,7 +112,7 @@
         public static Task<UIVisualizerResult> ShowAsync<TViewModel>(this IUIVisualizerService uiVisualizerService, object? model = null, EventHandler<UICompletedEventArgs>? completedProc = null)
             where TViewModel : IViewModel
         {
-            ArgumentNullException.ThrowIfNull(uiVisualizerService);
+            ArgumentNullExceptionCheck.ThrowIfNull(uiVisualizerService);
 
             var viewModelFactory = GetViewModelFactory(uiVisualizerService);
             var vm = viewModelFactory.CreateRequiredViewModel<TViewModel>(model);
@@ -131,7 +131,7 @@
         public static Task<UIVisualizerResult> ShowDialogAsync<TViewModel>(this IUIVisualizerService uiVisualizerService, object? model = null, EventHandler<UICompletedEventArgs>? completedProc = null)
             where TViewModel : IViewModel
         {
-            ArgumentNullException.ThrowIfNull(uiVisualizerService);
+            ArgumentNullExceptionCheck.ThrowIfNull(uiVisualizerService);
 
             var viewModelFactory = GetViewModelFactory(uiVisualizerService);
             var vm = viewModelFactory.CreateRequiredViewModel<TViewModel>(model);
@@ -160,7 +160,7 @@
         public static async Task<bool?> ShowOrActivateAsync<TViewModel>(this IUIVisualizerService uiVisualizerService, object? model = null, object? scope = null, EventHandler<UICompletedEventArgs>? completedProc = null)
             where TViewModel : IViewModel
         {
-            ArgumentNullException.ThrowIfNull(uiVisualizerService);
+            ArgumentNullExceptionCheck.ThrowIfNull(uiVisualizerService);
 
             var dependencyResolver = uiVisualizerService.GetDependencyResolver();
 
@@ -208,7 +208,7 @@
         /// <returns><c>true</c> if the window is activated with success; otherwise <c>false</c> or <c>null</c>.</returns>
         public static bool? ActivateWindow(Window window)
         {
-            ArgumentNullException.ThrowIfNull(window);
+            ArgumentNullExceptionCheck.ThrowIfNull(window);
 
             var activateMethodInfo = window.GetType().GetMethodEx("Activate");
             if (activateMethodInfo is null)

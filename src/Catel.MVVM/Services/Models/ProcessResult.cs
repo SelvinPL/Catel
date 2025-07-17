@@ -6,7 +6,7 @@
     {
         public ProcessResult(ProcessContext context)
         {
-            ArgumentNullException.ThrowIfNull(context);
+            ArgumentNullExceptionCheck.ThrowIfNull(context);
 
             Context = context;
         }

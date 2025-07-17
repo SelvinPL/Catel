@@ -16,8 +16,8 @@
 
         public static object CreateRequiredInstance(this ITypeFactory typeFactory, Type typeToConstruct)
         {
-            ArgumentNullException.ThrowIfNull(typeFactory);
-            ArgumentNullException.ThrowIfNull(typeToConstruct);
+            ArgumentNullExceptionCheck.ThrowIfNull(typeFactory);
+            ArgumentNullExceptionCheck.ThrowIfNull(typeToConstruct);
 
             var model = typeFactory.CreateInstance(typeToConstruct);
             if (model is null)
@@ -37,7 +37,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="typeFactory" /> is <c>null</c>.</exception>
         public static T? CreateInstance<T>(this ITypeFactory typeFactory)
         {
-            ArgumentNullException.ThrowIfNull(typeFactory);
+            ArgumentNullExceptionCheck.ThrowIfNull(typeFactory);
 
             return (T?)typeFactory.CreateInstance(typeof(T));
         }
@@ -52,14 +52,14 @@
         /// <exception cref="ArgumentNullException">The <paramref name="typeFactory" /> is <c>null</c>.</exception>
         public static T? CreateInstanceWithTag<T>(this ITypeFactory typeFactory, object? tag)
         {
-            ArgumentNullException.ThrowIfNull(typeFactory);
+            ArgumentNullExceptionCheck.ThrowIfNull(typeFactory);
 
             return (T?)typeFactory.CreateInstanceWithTag(typeof(T), tag);
         }
 
         public static object CreateRequiredInstanceWithTag(this ITypeFactory typeFactory, Type typeToConstruct, object? tag)
         {
-            ArgumentNullException.ThrowIfNull(typeFactory);
+            ArgumentNullExceptionCheck.ThrowIfNull(typeFactory);
 
             var model = typeFactory.CreateInstanceWithTag(typeToConstruct, tag);
             if (model is null)
@@ -82,8 +82,8 @@
 
         public static object CreateRequiredInstanceWithParameters(this ITypeFactory typeFactory, Type typeToConstruct, params object?[] parameters)
         {
-            ArgumentNullException.ThrowIfNull(typeFactory);
-            ArgumentNullException.ThrowIfNull(typeToConstruct);
+            ArgumentNullExceptionCheck.ThrowIfNull(typeFactory);
+            ArgumentNullExceptionCheck.ThrowIfNull(typeToConstruct);
 
             var model = typeFactory.CreateInstanceWithParameters(typeToConstruct, parameters);
             if (model is null)
@@ -104,7 +104,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="typeFactory"/> is <c>null</c>.</exception>
         public static T? CreateInstanceWithParameters<T>(this ITypeFactory typeFactory, params object[] parameters)
         {
-            ArgumentNullException.ThrowIfNull(typeFactory);
+            ArgumentNullExceptionCheck.ThrowIfNull(typeFactory);
 
             return (T?)typeFactory.CreateInstanceWithParameters(typeof(T), parameters);
         }
@@ -120,7 +120,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="typeFactory" /> is <c>null</c>.</exception>
         public static T? CreateInstanceWithParametersWithTag<T>(this ITypeFactory typeFactory, object? tag, params object[] parameters)
         {
-            ArgumentNullException.ThrowIfNull(typeFactory);
+            ArgumentNullExceptionCheck.ThrowIfNull(typeFactory);
 
             return (T?)typeFactory.CreateInstanceWithParametersWithTag(typeof(T), tag, parameters);
         }
@@ -132,8 +132,8 @@
 
         public static object CreateRequiredInstanceWithParametersAndAutoCompletion(this ITypeFactory typeFactory, Type typeToConstruct, params object?[] parameters)
         {
-            ArgumentNullException.ThrowIfNull(typeFactory);
-            ArgumentNullException.ThrowIfNull(typeToConstruct);
+            ArgumentNullExceptionCheck.ThrowIfNull(typeFactory);
+            ArgumentNullExceptionCheck.ThrowIfNull(typeToConstruct);
 
             var model = typeFactory.CreateInstanceWithParametersAndAutoCompletion(typeToConstruct, parameters);
             if (model is null)
@@ -156,14 +156,14 @@
         /// <exception cref="ArgumentNullException">The <paramref name="typeFactory"/> is <c>null</c>.</exception>
         public static T? CreateInstanceWithParametersAndAutoCompletion<T>(this ITypeFactory typeFactory, params object[] parameters)
         {
-            ArgumentNullException.ThrowIfNull(typeFactory);
+            ArgumentNullExceptionCheck.ThrowIfNull(typeFactory);
 
             return (T?)typeFactory.CreateInstanceWithParametersAndAutoCompletion(typeof(T), parameters);
         }
 
         public static T CreateRequiredInstanceWithParametersAndAutoCompletionWithTag<T>(this ITypeFactory typeFactory, object? tag, params object[] parameters)
         {
-            ArgumentNullException.ThrowIfNull(typeFactory);
+            ArgumentNullExceptionCheck.ThrowIfNull(typeFactory);
 
             var model = typeFactory.CreateInstanceWithParametersAndAutoCompletionWithTag<T>(tag, parameters);
             if (model is null)
@@ -187,7 +187,7 @@
         /// <exception cref="ArgumentNullException">The <paramref name="typeFactory" /> is <c>null</c>.</exception>
         public static T? CreateInstanceWithParametersAndAutoCompletionWithTag<T>(this ITypeFactory typeFactory, object? tag, params object[] parameters)
         {
-            ArgumentNullException.ThrowIfNull(typeFactory);
+            ArgumentNullExceptionCheck.ThrowIfNull(typeFactory);
 
             return (T?)typeFactory.CreateInstanceWithParametersAndAutoCompletionWithTag(typeof(T), tag, parameters);
         }

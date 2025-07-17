@@ -19,9 +19,9 @@
         /// <exception cref="ArgumentNullException">The <paramref name="mappings"/> is <c>null</c>.</exception>
         internal ViewModelMetadata(Type viewModelType, Dictionary<string, ModelInfo> models, Dictionary<string, ViewModelToModelMapping> mappings)
         {
-            ArgumentNullException.ThrowIfNull(viewModelType);
-            ArgumentNullException.ThrowIfNull(models);
-            ArgumentNullException.ThrowIfNull(mappings);
+            ArgumentNullExceptionCheck.ThrowIfNull(viewModelType);
+            ArgumentNullExceptionCheck.ThrowIfNull(models);
+            ArgumentNullExceptionCheck.ThrowIfNull(mappings);
 
             ViewModelType = viewModelType;
             Models = models;

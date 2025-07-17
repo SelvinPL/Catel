@@ -22,8 +22,8 @@
         /// <exception cref="ArgumentNullException">The <paramref name="validationSummaryPropertyExpression"/> is <c>null</c>.</exception>
         public static Command CreateCommand(Action execute, Expression<Func<IValidationSummary>> validationSummaryPropertyExpression, object? tag = null)
         {    
-            ArgumentNullException.ThrowIfNull(execute);
-            ArgumentNullException.ThrowIfNull(validationSummaryPropertyExpression);
+            ArgumentNullExceptionCheck.ThrowIfNull(execute);
+            ArgumentNullExceptionCheck.ThrowIfNull(validationSummaryPropertyExpression);
 
             var property = validationSummaryPropertyExpression.Compile();
 
@@ -49,8 +49,8 @@
         /// <exception cref="ArgumentNullException">The <paramref name="validationSummaryPropertyExpression"/> is <c>null</c>.</exception>
         public static Command<TExecuteParameter> CreateCommand<TExecuteParameter>(Action<TExecuteParameter?> execute, Expression<Func<IValidationSummary>> validationSummaryPropertyExpression, object? tag = null)
         {
-            ArgumentNullException.ThrowIfNull(execute);
-            ArgumentNullException.ThrowIfNull(validationSummaryPropertyExpression);
+            ArgumentNullExceptionCheck.ThrowIfNull(execute);
+            ArgumentNullExceptionCheck.ThrowIfNull(validationSummaryPropertyExpression);
 
             var property = validationSummaryPropertyExpression.Compile();
 
@@ -75,8 +75,8 @@
         /// <exception cref="ArgumentNullException">The <paramref name="validationSummaryPropertyExpression"/> is <c>null</c>.</exception>
         public static TaskCommand CreateTaskCommand(Func<Task> execute, Expression<Func<IValidationSummary>> validationSummaryPropertyExpression, object? tag = null)
         {
-            ArgumentNullException.ThrowIfNull(execute);
-            ArgumentNullException.ThrowIfNull(validationSummaryPropertyExpression);
+            ArgumentNullExceptionCheck.ThrowIfNull(execute);
+            ArgumentNullExceptionCheck.ThrowIfNull(validationSummaryPropertyExpression);
 
             var property = validationSummaryPropertyExpression.Compile();
 
@@ -102,8 +102,8 @@
         /// <exception cref="ArgumentNullException">The <paramref name="validationSummaryPropertyExpression"/> is <c>null</c>.</exception>
         public static TaskCommand<TExecuteParameter> CreateTaskCommand<TExecuteParameter>(Func<TExecuteParameter?, Task> execute, Expression<Func<IValidationSummary>> validationSummaryPropertyExpression, object? tag = null)
         {
-            ArgumentNullException.ThrowIfNull(execute);
-            ArgumentNullException.ThrowIfNull(validationSummaryPropertyExpression);
+            ArgumentNullExceptionCheck.ThrowIfNull(execute);
+            ArgumentNullExceptionCheck.ThrowIfNull(validationSummaryPropertyExpression);
 
             var property = validationSummaryPropertyExpression.Compile();
 
