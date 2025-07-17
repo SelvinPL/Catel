@@ -92,7 +92,11 @@
 
         static TypeCache()
         {
+#if !NETFRAMEWORK
             IsAutomaticInitializationEnabled = (RuntimeInformation.ProcessArchitecture != Architecture.Wasm);
+#else
+            IsAutomaticInitializationEnabled = true;
+#endif
         }
 
         /// <summary>

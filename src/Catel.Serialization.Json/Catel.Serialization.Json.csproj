@@ -1,6 +1,6 @@
-<Project Sdk="MSBuild.Sdk.Extras">
+﻿<Project Sdk="MSBuild.Sdk.Extras">
   <PropertyGroup>
-    <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
+    <TargetFrameworks>net8.0;net9.0;net48</TargetFrameworks>
     <AssemblyName>Catel.Serialization.Json</AssemblyName>
     <RootNamespace>Catel</RootNamespace>
     <DefaultLanguage>en-US</DefaultLanguage>
@@ -31,7 +31,19 @@
   </ItemGroup>
 
   <ItemGroup Condition=" $(TargetFramework.StartsWith('net9.0')) ">
-    <!-- No net8.0 specific packages yet -->
+    <!-- No net9.0 specific packages yet -->
+  </ItemGroup>
+
+  <PropertyGroup Condition=" $(TargetFramework.StartsWith('net4')) ">
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <LangVersion>preview</LangVersion>
+  </PropertyGroup>
+  
+  <ItemGroup Condition=" $(TargetFramework.StartsWith('net4')) ">
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Using Include="Catel.Compatibility" />
+    <Compile Include="..\Catel.Compatibility\ArgumentNullExceptionExtension.cs" />
   </ItemGroup>
 
   <ItemGroup>

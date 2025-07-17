@@ -44,6 +44,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catel.Tests.TestReferenceB"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catel.Tests.TestReferenceC", "Catel.Tests.TestReferenceC\Catel.Tests.TestReferenceC.csproj", "{C8B3FAB1-53C1-468F-A42D-B1442045017C}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Catel.Compatibility", "Catel.Compatibility\Catel.Compatibility.shproj", "{518DC097-E468-4A9B-9F84-5227C5A1E24B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -182,10 +184,14 @@ Global
 		{FE613FD8-6773-4903-8BD6-11EEB6D57210} = {8C3710FE-B6C7-4261-81B6-897F4B286B2B}
 		{F417918C-C57F-4653-9A1A-9DAD829854BD} = {8C3710FE-B6C7-4261-81B6-897F4B286B2B}
 		{C8B3FAB1-53C1-468F-A42D-B1442045017C} = {8C3710FE-B6C7-4261-81B6-897F4B286B2B}
+		{518DC097-E468-4A9B-9F84-5227C5A1E24B} = {4412C6EA-F923-422A-B025-DEB25BD3AA69}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B4C37A2D-FBE4-48F0-9452-85EB01593F6C}
 		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35;..\lib\Unity.2.1.505.0\lib\NET35;..\lib\Unity.2.1.505.2\lib\NET35
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Catel.Compatibility\Catel.Compatibility.projitems*{518dc097-e468-4a9b-9f84-5227c5a1e24b}*SharedItemsImports = 13
 	EndGlobalSection
 	GlobalSection(DPCodeReviewSolutionGUID) = preSolution
 		DPCodeReviewSolutionGUID = {00000000-0000-0000-0000-000000000000}

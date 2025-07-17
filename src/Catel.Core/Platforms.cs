@@ -45,9 +45,13 @@
                     return false;
 
                 case KnownPlatforms.NET:
-                    return currentPlatform == SupportedPlatforms.NET6 ||
+                    return currentPlatform == SupportedPlatforms.NET48 ||
+                           currentPlatform == SupportedPlatforms.NET6 ||
                            currentPlatform == SupportedPlatforms.NET7 ||
                            currentPlatform == SupportedPlatforms.NET8;
+
+                case KnownPlatforms.NET48:
+                    return currentPlatform == SupportedPlatforms.NET48;
 
                 case KnownPlatforms.NET6:
                     return currentPlatform == SupportedPlatforms.NET6;
@@ -71,6 +75,8 @@
             return SupportedPlatforms.NET7;
 #elif NET8
             return SupportedPlatforms.NET8;
+#elif NETFRAMEWORK
+            return SupportedPlatforms.NET48;
 #else
             throw new System.NotSupportedException("Unknown platform is not supported");
 #endif
@@ -82,6 +88,10 @@
     /// </summary>
     public enum SupportedPlatforms
     {
+        /// <summary>
+        /// Framework 4.8
+        /// </summary>
+        NET48,
         /// <summary>
         /// .NET 6
         /// </summary>
@@ -112,6 +122,11 @@
         /// Any .NET platform.
         /// </summary>
         NET,
+
+        /// <summary>
+        /// Framework 4.8
+        /// </summary>
+        NET48,
 
         /// <summary>
         /// .NET 6.

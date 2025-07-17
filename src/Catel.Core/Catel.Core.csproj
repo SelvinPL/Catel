@@ -1,6 +1,6 @@
 ﻿<Project Sdk="MSBuild.Sdk.Extras">
   <PropertyGroup>
-    <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
+    <TargetFrameworks>net8.0;net9.0;net48</TargetFrameworks>
     <AssemblyName>Catel.Core</AssemblyName>
     <RootNamespace>Catel</RootNamespace>
     <DefaultLanguage>en-US</DefaultLanguage>
@@ -9,7 +9,7 @@
     <Description>Catel.Core library.</Description>
     <PackageTags>catel;argument;checking;guard;logging;log;ioc;dependency;resolver;factory;configuration;data;model;messaging;messenger;reflection;scope;scoping;caching;cache;weak;reference;event</PackageTags>
   </PropertyGroup>
-
+  
   <PropertyGroup>
     <!-- SonarQube requires a project guid -->
     <ProjectGuid>3B47FC74-57AD-4F8B-B9C6-7F31FF39687B</ProjectGuid>
@@ -31,6 +31,20 @@
 
   <ItemGroup Condition=" $(TargetFramework.StartsWith('net9.0')) ">
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="9.0.5" />
+  </ItemGroup>
+
+  <PropertyGroup Condition=" $(TargetFramework.StartsWith('net4')) ">
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <LangVersion>preview</LangVersion>
+  </PropertyGroup>
+
+  <Import Project="..\Catel.Compatibility\Catel.Compatibility.projitems" Label="Shared" Condition=" $(TargetFramework.StartsWith('net4')) "/>
+  
+  <ItemGroup Condition=" $(TargetFramework.StartsWith('net4')) ">
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Using Include="Catel.Compatibility" />
+    <Compile Include="..\Catel.Compatibility\ArgumentNullExceptionExtension.cs" />
   </ItemGroup>
 
   <ItemGroup>
